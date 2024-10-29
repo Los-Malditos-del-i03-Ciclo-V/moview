@@ -105,14 +105,6 @@ public class PeliculaController {
      * @param id El identificador de la película a editar.
      * @return Un objeto `ModelAndView` que contiene el nombre de la vista y los datos de la película.
      */
-    // === Path for update a movie by id === //
-    @GetMapping("/actualizar/{id}")
-    public ModelAndView editarPelicula (@PathVariable (name = "id") int id){
-        ModelAndView modelAndView = new ModelAndView("/peliculas/editar-pelicula");
-        Pelicula pelicula = peliculaService.searchObjectById(id);
-        modelAndView.addObject("pelicula", pelicula);
-        return modelAndView;
-    }
 
       /**
      * <strong>@DeleteMapping</strong><br>
