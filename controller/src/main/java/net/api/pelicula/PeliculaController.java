@@ -21,7 +21,7 @@ import java.util.List;
  *  manejarán las diferentes peticiones (GET, POST, PUT, DELETE, etc.).
  */
 @Controller
-@RequestMapping("/peliculas")
+@RequestMapping("/dashboard")
 public class PeliculaController {
 
     /**
