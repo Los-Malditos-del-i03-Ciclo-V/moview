@@ -14,8 +14,8 @@
                     <i id="hamburgerIcon" class="fa-solid fa-bars text-2xl"></i>
                 </button>
                 <div id="menu" class="hidden lg:flex py-3 space-x-9 items-center">
-                    <a th:href="@{/}" class="#">Inicio</a>
-                    <a th:href="@{/movies}" class="#">Películas</a>
+                    <a th:href="@{/home}" class="#">Inicio</a>
+                    <a th:href="@{/peliculas}" class="#">Películas</a>
                     <a href="#" class="#">Horarios</a>
                     <div class="relative">
                         <button id="servicesMenuBtn" class="bg-transparent flex items-center">
@@ -29,8 +29,8 @@
                             <a th:href="@{/contacto}" class="block px-4 py-2 text-black hover:bg-white">Contácto</a>
                         </div>
                     </div>
-                    <a th:href="@{/login}" class="border-2 border-black hover:bg-secondaryColor hover:text-white px-3 py-1 text-center">Iniciar</a>
-                    <a th:href="@{/register}" class="border-2 border-black bg-secondaryColor hover:bg-green-950 px-3 py-1 text-white text-center">Registrarse</a>
+                    <a th:href="@{/autenticacion/login}" class="border-2 border-black hover:bg-secondaryColor hover:text-white px-3 py-1 text-center">Iniciar</a>
+                    <a th:href="@{/autenticacion/register}" class="border-2 border-black bg-secondaryColor hover:bg-green-950 px-3 py-1 text-white text-center">Registrarse</a>
                             
                 </div>
             </div>
@@ -40,7 +40,7 @@
         <div id="dropdownMenu" class="hidden lg:hidden bg-primaryColor absolute w-full">
             <div class="flex flex-col space-y-2 p-4">
                 <a href="#" class="hover:bg-white ring-black p-2 hover:border-black">Inicio</a>
-                <a th:href="@{/movies}" class="hover:bg-white ring-black p-2 hover:border-black">Películas</a>
+                <a th:href="@{/peliculas}" class="hover:bg-white ring-black p-2 hover:border-black">Películas</a>
                 <a href="#" class="hover:bg-white ring-black p-2 hover:border-black">Horarios</a>
                 <div class="relative">
                     <button id="servicesMenuBtnMobile"
@@ -54,8 +54,8 @@
                         <a href="#" class="block w-auto px-4 py-2 text-black hover:bg-white">Contácto</a>
                     </div>
                 </div>
-                <a th:href="@{/login}" class="border-2 border-black hover:bg-white hover:text-black px-3 py-1 text-center">Iniciar</a>
-                <a tH:href="@{/register}" class="border-2 border-black bg-secondaryColor hover:bg-green-950 px-3 py-1 text-white text-center">Registrarse</a>
+                <a th:href="@{/autenticacion/login}" class="border-2 border-black hover:bg-white hover:text-black px-3 py-1 text-center">Iniciar</a>
+                <a th:href="@{/autenticacion/register}" class="border-2 border-black bg-secondaryColor hover:bg-green-950 px-3 py-1 text-white text-center">Registrarse</a>
             </div>
         </div>
     </header>
