@@ -82,7 +82,7 @@ public class PeliculaService implements CrudMethods<Pelicula, Integer> {
      * Esta función actualiza una película de la base de datos por su identificador
      * único
      *
-     * @param pelicula Es el objeto película a ser actualizado. Debe contener toda
+     * @param updateMovie Es el objeto película a ser actualizado. Debe contener toda
      *                 la
      *                 información necesaria de película como título, duración,
      *                 clasificación, etc.
