@@ -1,22 +1,22 @@
-package net.api.confiteria;
+    package net.api.confiteria;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+    import org.springframework.stereotype.Controller;
+    import org.springframework.web.bind.annotation.GetMapping;
+    import org.springframework.web.bind.annotation.RequestMapping;
 
 
-@Controller
-@RequestMapping("/confiteria")
-public class ConfiteriaController {
+    @Controller
+    @RequestMapping("/confiteria")
+    public class ConfiteriaController {
 
-    @GetMapping
-    public String mostrarConfiteria() {
-        return "confiteria/confiteria";
+        @GetMapping
+        public String mostrarConfiteria() {
+            return "confiteria/confiteria";
+        }
+
+        @GetMapping("/carrito")
+        public String mostrarCarrito() {
+            return "confiteria/cart";
+        }
+
     }
-
-    @GetMapping("/carrito")
-    public String mostrarCarrito() {
-        return "confiteria/cart";
-    }
-
-}
