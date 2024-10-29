@@ -59,4 +59,7 @@ public class Pelicula {
 
     @Column( name = "director" )
     String director;
+
+    @Column( name = "imagen" )
+    String imagen;
 }
