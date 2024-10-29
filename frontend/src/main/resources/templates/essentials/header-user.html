@@ -13,8 +13,8 @@
                     <i id="hamburgerIcon" class="fa-solid fa-bars text-2xl"></i>
                 </button>
                 <div id="menu" class="hidden lg:flex py-3 space-x-9 items-center text-white">
-                    <a th:href="@{/}" class="#">Inicio</a>
-                    <a th:href="@{/movies}" class="#">Películas</a>
+                    <a th:href="@{/home}" class="#">Inicio</a>
+                    <a th:href="@{/peliculas}" class="#">Películas</a>
                     <a href="#" class="#">Horarios</a>
                     <div class="relative">
                         <button id="servicesMenuBtn" class="bg-transparent flex items-center">
@@ -33,8 +33,8 @@
         <!-- MENÚ DESPLEGABLE -->
         <div id="dropdownMenu" class="hidden lg:hidden bg-secondaryColor absolute w-full z-50">
             <div class="flex flex-col space-y-2 p-4">
-                <a th:href="@{../moview}" class="text-white hover:text-black hover:bg-white ring-white p-2 hover:border-white">Inicio</a>
-                <a th:href="@{/movies}" class="text-white hover:text-black hover:bg-white ring-white p-2 hover:border-white">Películas</a>
+                <a th:href="@{/home}" class="text-white hover:text-black hover:bg-white ring-white p-2 hover:border-white">Inicio</a>
+                <a th:href="@{/peliculas}" class="text-white hover:text-black hover:bg-white ring-white p-2 hover:border-white">Películas</a>
                 <a href="#" class="text-white hover:text-black hover:bg-white ring-white p-2 hover:border-white">Horarios</a>
                 <div class="relative">
                     <button id="servicesMenuBtnMobile"
