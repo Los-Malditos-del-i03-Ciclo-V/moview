@@ -23,7 +23,7 @@ public class Launcher {
      * </p>
      * <p>
      *     Para revisar el servidor, dirígete al siguiente enlace:
-     *     <a href="http://localhost:8080/moview/peliculas/lista">Moview - Peliculas</a>.
+     *     <a href="http://localhost:8001/home">Moview - Peliculas</a>.
      * </p>
      *
      * @param args
