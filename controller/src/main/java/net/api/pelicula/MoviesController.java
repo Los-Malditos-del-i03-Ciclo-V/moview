@@ -20,7 +20,17 @@ public class MoviesController {
 
     @Autowired
     private PeliculaService service;
-
+    /**
+     * <strong>@GetMapping</strong><br>
+     * Muestra un formulario precargado con los datos de una película existente para editarla.
+     *
+     * <p>Este método busca la película con el ID proporcionado en el servicio de películas.
+     * Luego, crea un objeto {@link ModelAndView} para representar la vista de edición y agrega la película
+     * al modelo para que se muestre en el formulario.
+     *
+     * @param id El identificador de la película a editar.
+     * @return Un objeto `ModelAndView` que contiene el nombre de la vista y los datos de la película.
+     */
     @GetMapping
     public String mostrarMovies(Model model) {
         List<Pelicula> listaMovies = service.searchAllObjects();
