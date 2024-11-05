@@ -62,4 +62,17 @@ public class Pelicula {
 
     @Column( name = "imagen" )
     String imagen;
+/*
+    @OneToOne
+    @JoinColumn(name = "idIdioma")
+    Idioma idioma;
+
+    @OneToOne
+    @JoinColumn(name = "idCategoria")
+    Categoria categoria;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idFormato")
+    Formato formato;
+*/
 }
