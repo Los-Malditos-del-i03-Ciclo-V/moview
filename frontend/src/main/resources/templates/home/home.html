@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<th:block th:replace="~{fragments/head :: head}"></th:block>
+<body class="bg-secondaryColor">
+
+<!-- HEADER SECTION -->
+<header th:replace="~{fragments/header :: header}"></header>
+
+<!-- TEXT BANNER -->
+<section th:replace="~{home/fragments/banner :: banner}"></section>
+
+<!-- DESTACADO MOVIEW -->
+<section th:replace="~{home/fragments/highlighted :: highlighted}"></section>
+
+<!-- AUTO BANNER -->
+<section th:replace="~{home/fragments/auto-banner :: auto-banner}"></section>
+
+<!-- SECCIÓN STEPS TO BUY -->
+<section th:replace="~{home/fragments/steps-to-buy :: steps-to-buy}"></section>
+
+<!-- SECCIÓN SERVICIOS -->
+<section th:replace="~{home/fragments/services :: services}"></section>
+
+<!-- SECCIÓN ESTADÍSTICA -->
+<section th:replace="~{home/fragments/statistics :: statistics}"></section>
+
+<!-- SECCIÓN TESTIMONIOS -->
+<section th:replace="~{home/fragments/testimonials :: testimonials}"></section>
+
+<!-- SECCIÓN TICKETS -->
+<section th:replace="~{home/fragments/tickets :: tickets}"></section>
+
+<!-- SECCIÓN CONTACTO -->
+<section th:replace="~{home/fragments/contact :: contact}"></section>
+
+<!-- SUSCRIPCIÓN -->
+<section th:replace="~{home/fragments/subscription :: subscription}"></section>
+
+<!-- FOOTER -->
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+
+<!-- DIRECTORIO JS -->
+<script th:src="@{/js/app.js}"></script>
+</body>
+</html>

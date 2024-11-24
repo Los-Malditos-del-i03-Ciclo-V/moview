@@ -29,17 +29,10 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### Ocultando todas las dependencias ###
+### VS Code ###
 .vscode/
+.mvn/
+.idea/
+
+### Node ###
 node_modules/
-
-# Archivos de registro
-npm-debug.log
-yarn-error.log
-
-# Archivos de entorno
-.env
-
-# Archivos de compilación
-dist/
-build/

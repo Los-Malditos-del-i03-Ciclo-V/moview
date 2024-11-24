@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org" lang="es">
+
+    <header th:fragment="header" class="h-16 w-full bg-primaryColor absolute">
+        <div class="flex justify-between items-center mx-8 lg:mx-24">
+            <div class="">
+                <a href="#">
+                    <img th:src="@{/images/company/logo_black.png}" class="min-h-14 max-h-14" alt="Logo Empresa">
+                </a>
+            </div>
+
+            <div class="flex items-center">
+                <button id="hamburger" class="text-slate-500 hover:text-black block lg:hidden p-3 mt-1">
+                    <i id="hamburgerIcon" class="fa-solid fa-bars text-2xl"></i>
+                </button>
+                <div id="menu" class="hidden lg:flex py-3 space-x-9 items-center">
+                    <a th:href="@{/home}" class="#">Inicio</a>
+                    <a th:href="@{/peliculas}" class="#">Películas</a>
+                    <a href="#" class="#">Horarios</a>
+                    <div class="relative">
+                        <button id="servicesMenuBtn" class="bg-transparent flex items-center">
+                            Servicios
+                            <i class="fa-solid fa-chevron-down ml-1"></i> <!-- Icono de flecha hacia abajo -->
+                        </button>
+                        <div id="servicesDropdown" class="hidden absolute bg-primaryColor shadow-lg mt-2">
+                            <a th:href="@{/confiteria}"
+                               class="block px-4 py-2 text-black hover:bg-white">Confitería</a>
+                            <a href="#" class="block px-4 py-2 text-black hover:bg-white">Promociones</a>
+                            <a th:href="@{/contacto}" class="block px-4 py-2 text-black hover:bg-white">Contácto</a>
+                        </div>
+                    </div>
+                    <a th:href="@{/autenticacion/login}" class="border-2 border-black hover:bg-secondaryColor hover:text-white px-3 py-1 text-center">Iniciar</a>
+                    <a th:href="@{/autenticacion/register}" class="border-2 border-black bg-secondaryColor hover:bg-green-950 px-3 py-1 text-white text-center">Registrarse</a>
+                            
+                </div>
+            </div>
+        </div>
+
+        <!-- MENÚ DESPLEGABLE -->
+        <div id="dropdownMenu" class="hidden lg:hidden bg-primaryColor absolute w-full">
+            <div class="flex flex-col space-y-2 p-4">
+                <a href="#" class="hover:bg-white ring-black p-2 hover:border-black">Inicio</a>
+                <a th:href="@{/peliculas}" class="hover:bg-white ring-black p-2 hover:border-black">Películas</a>
+                <a href="#" class="hover:bg-white ring-black p-2 hover:border-black">Horarios</a>
+                <div class="relative">
+                    <button id="servicesMenuBtnMobile"
+                            class="text-gray-7 bg-transparent flex items-center w-full justify-between p-2">
+                        Servicios
+                        <i class="fa-solid fa-chevron-down ml-1"></i>
+                    </button>
+                    <div id="servicesDropdownMobile" class="hidden absolute bg-primaryColor shadow-lg mt-2 w-full">
+                        <a th:href="@{/confiteria}" class="block w-auto px-4 py-2 text-black hover:bg-white">Confitería</a>
+                        <a href="#" class="block w-auto px-4 py-2 text-black hover:bg-white">Promociones</a>
+                        <a href="#" class="block w-auto px-4 py-2 text-black hover:bg-white">Contácto</a>
+                    </div>
+                </div>
+                <a th:href="@{/autenticacion/login}" class="border-2 border-black hover:bg-white hover:text-black px-3 py-1 text-center">Iniciar</a>
+                <a th:href="@{/autenticacion/register}" class="border-2 border-black bg-secondaryColor hover:bg-green-950 px-3 py-1 text-white text-center">Registrarse</a>
+            </div>
+        </div>
+    </header>
+
+</html>
