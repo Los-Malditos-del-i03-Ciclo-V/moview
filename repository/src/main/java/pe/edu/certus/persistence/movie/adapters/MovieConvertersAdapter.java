@@ -6,7 +6,7 @@ import pe.edu.certus.persistence.movie.dao.MovieDAO;
 import pe.edu.certus.persistence.movie.port.converter.ForConvert;
 
 @Component
-public class MovieConverters implements ForConvert<MovieDAO, MovieDTO> {
+public class MovieConvertersAdapter implements ForConvert<MovieDAO, MovieDTO> {
     @Override
     public MovieDAO convertToDao(MovieDTO dto) {
         return MovieDAO.builder()
