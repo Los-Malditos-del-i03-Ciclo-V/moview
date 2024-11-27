@@ -4,7 +4,7 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pe.edu.certus.model.movie.dto.MovieDTO;
-import pe.edu.certus.persistence.movie.port.factory.ForFactory;
+import pe.edu.certus.persistence.essentials.factory.ForFactory;
 import pe.edu.certus.persistence.movie.dao.MovieDAO;
 import pe.edu.certus.persistence.movie.port.jpa.ForManagingMovie;
 

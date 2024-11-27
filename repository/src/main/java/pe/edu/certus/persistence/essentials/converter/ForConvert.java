@@ -1,4 +1,4 @@
-package pe.edu.certus.persistence.movie.port.converter;
+package pe.edu.certus.persistence.essentials.converter;
 
 public interface ForConvert <E, P>{
 

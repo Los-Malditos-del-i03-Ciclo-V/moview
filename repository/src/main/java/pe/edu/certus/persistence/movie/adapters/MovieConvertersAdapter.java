@@ -3,7 +3,7 @@ package pe.edu.certus.persistence.movie.adapters;
 import org.springframework.stereotype.Component;
 import pe.edu.certus.model.movie.dto.MovieDTO;
 import pe.edu.certus.persistence.movie.dao.MovieDAO;
-import pe.edu.certus.persistence.movie.port.converter.ForConvert;
+import pe.edu.certus.persistence.essentials.converter.ForConvert;
 
 @Component
 public class MovieConvertersAdapter implements ForConvert<MovieDAO, MovieDTO> {
