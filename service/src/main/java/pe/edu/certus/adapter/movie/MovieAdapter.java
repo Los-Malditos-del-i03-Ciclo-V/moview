@@ -11,7 +11,7 @@ import pe.edu.certus.persistence.movie.port.jpa.ForManagingMovie;
 import java.util.List;
 
 @Service
-public class MovieAdapter implements ForCrudMethods<MovieDTO, Long> {
+public class MovieAdapter implements ForCrudMethods<MovieDTO, Integer> {
 
     @Autowired
     ForManagingMovie forManagingMovie;
@@ -30,7 +30,7 @@ public class MovieAdapter implements ForCrudMethods<MovieDTO, Long> {
     }
 
     @Override
-    public MovieDTO findEntityById(Long id) {
+    public MovieDTO findEntityById(Integer id) {
         MovieDAO movieDAO = forManagingMovie.findById(id).get();
         return forMovieConvertersAdapter.convertToDto(movieDAO);
     }
@@ -56,7 +56,7 @@ public class MovieAdapter implements ForCrudMethods<MovieDTO, Long> {
 
 
     @Override
-    public void deleteEntityById(Long id) {
+    public void deleteEntityById(Integer id) {
         if (!forManagingMovie.existsById(id)) {
             throw new RuntimeException("Movie with ID " + id + " not found.");
         }

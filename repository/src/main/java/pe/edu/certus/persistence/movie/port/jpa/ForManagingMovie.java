@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import pe.edu.certus.persistence.movie.dao.MovieDAO;
 
 @Repository
-public interface ForManagingMovie extends JpaRepository<MovieDAO, Long> {
+public interface ForManagingMovie extends JpaRepository<MovieDAO, Integer> {
 }
