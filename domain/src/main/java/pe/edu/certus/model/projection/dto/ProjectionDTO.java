@@ -17,8 +17,8 @@ import java.time.LocalTime;
 public class ProjectionDTO {
 
     private Integer id;
-    private LocalDate date;
-    private LocalTime time;
+    private LocalDate projectionDate;
+    private LocalTime projectionTime;
     private Integer movieId;
 
 }

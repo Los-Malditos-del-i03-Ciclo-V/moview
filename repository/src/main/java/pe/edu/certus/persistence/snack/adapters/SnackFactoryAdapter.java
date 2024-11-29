@@ -20,7 +20,8 @@ public class SnackFactoryAdapter implements ForFactory<SnackDAO, SnackDTO> {
 
     @Override
     public SnackDAO createAndSaveAnyDao(SnackDTO snackDTO) {
-        return forManagingSnack.save(forSnackConvertersAdapter.convertToDao(snackDTO));
+        SnackDAO snackDAO = forSnackConvertersAdapter.convertToDao(snackDTO);
+        return forManagingSnack.save(snackDAO);
     }
 
     @PostConstruct

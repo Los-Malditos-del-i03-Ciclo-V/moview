@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import pe.edu.certus.persistence.movie.dao.MovieDAO;
 
 import java.sql.Time;
 import java.time.LocalDate;
@@ -25,9 +26,11 @@ public class ProjectionDAO {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private LocalDate date;
-    private LocalTime time;
+    private LocalDate projectionDate;
+    private LocalTime projectionTime;
 
-    private Integer movieId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_movie_id", referencedColumnName = "id")
+    private MovieDAO movie;
 
 }

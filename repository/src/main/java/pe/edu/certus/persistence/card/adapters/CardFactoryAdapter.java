@@ -18,7 +18,8 @@ public class CardFactoryAdapter implements ForFactory<CardDAO, CardDTO> {
     CardConvertersAdapter forCardConvertersAdapter;
     @Override
     public CardDAO createAndSaveAnyDao(CardDTO dto) {
-        return forManagingCard.save(forCardConvertersAdapter.convertToDao(dto));
+        CardDAO cardDAO = forCardConvertersAdapter.convertToDao(dto);
+        return forManagingCard.save(cardDAO);
     }
 
     @PostConstruct
@@ -118,6 +119,16 @@ public class CardFactoryAdapter implements ForFactory<CardDAO, CardDTO> {
                 .expirationDate("12/12")
                 .cvc("123")
                 .emailAddress("luis@gmail.com")
+                .isActive(true)
+                .build());
+        createAndSaveAnyDao(CardDTO.builder()
+                .fullName("Maria")
+                .documentType("DNI")
+                .documentNumber(654321098)
+                .cardNumber(654321098)
+                .expirationDate("12/12")
+                .cvc("123")
+                .emailAddress("maria@gmail.com")
                 .isActive(true)
                 .build());
     }

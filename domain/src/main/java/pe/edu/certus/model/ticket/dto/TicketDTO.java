@@ -19,9 +19,8 @@ public class TicketDTO {
     private Double price;
     private Boolean isUsed;
     private LocalDateTime timestamp;
-
     private Integer userId;
     private Integer movieId;
-    private Integer ticketId;
+
 
 }
