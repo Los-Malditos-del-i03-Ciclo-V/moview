@@ -26,6 +26,7 @@ public class MovieConvertersAdapter implements ForConvert<MovieDAO, MovieDTO> {
     @Override
     public MovieDTO convertToDto(MovieDAO dao) {
         return MovieDTO.builder()
+                .id(dao.getId())
                 .title(dao.getTitle())
                 .director(dao.getDirector())
                 .synopsis(dao.getSynopsis())
