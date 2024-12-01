@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
 
-    <!-- TEXT BANNER -->
-    <section th:fragment="banner">
-        <div class="bg-secondaryColor h-screen flex justify-center">
-            <div class="items-center justify-center flex flex-col space-y-10 font-Overlock mx-12 xl:mx-0">
-                <div class="#">
-                    <h1 class="text-center text-white text-4xl sm:text-5xl md:text-6xl xl:text-7xl">¡Bienvenidos a
-                        Moview el
-                        mejor <br> Cine Drive-In de la Ciudad!</h1>
-                </div>
-                <div>
-                    <p class="text-center text-white text-lg sm:text-xl xl:text-2xl">Disfruta de una experiencia
-                        única bajo las estrellas con nuestras peliculas de <br>
-                        estreno y deliciosos snacks.</p>
-                </div>
-                <div class="space-x-2">
-                    <button
-                            class="border-2 border-gray-200 bg-gray-200 px-3 py-1 text-black font-semibold text-lg xl:text-xl hover:bg-white">Explorar</button>
-                    <button
-                            class="border-2 border-white bg-secondaryColor px-3 py-1 text-white font-semibold text-lg xl:text-xl hover:bg-white hover:text-black">Registrarse</button>
-                </div>
+<!-- TEXT BANNER -->
+<section th:fragment="banner">
+    <div class="bg-black h-lvh justify-center relative">
+        <img th:src="@{images/home/fondo_banner.svg}" class="h-full w-full bg-cover max-[1385px]:hidden" alt="">
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-white font-plus-jakarta-sans space-y-12 min-[820px]:space-y-8 min-[820px]:mt-8 max-[820px]:my-20 max-[820px]:mx-5">
+            <div class="min-[820px]:w-3/5">
+                <h2 class="text-5xl min-[820px]:text-7xl whitespace-normal text-center leading-tight">¡Bienvenido al mejor AutoCine de la Ciudad!</h2>
+            </div>
+            <div class="min-[820px]:w-2/5">
+                <p class="text-center tracking-wide text-base min-[820px]:text-lg">Obten una experiencia de calidad en tu auto viendo las peliculas destacadas del
+                    momento acompañado de una gran variedad de productos en nuestra Confiteria.
+                </p>
+            </div>
+            <div class="space-x-2 min-[820px]:space-x- font-bold">
+                <a class="text-base min-[820px]:text-lg text-black px-5 py-3 min-[820px]:px-6 min-[820px]:py-3 text-center rounded-md bg-primaryColor hover:bg-primaryHoverColor duration-150"href="#">Comenzar</a>
+                <a class="text-base min-[820px]:text-lg text-black px-5 py-3 min-[820px]:px-6 min-[820px]:py-3 text-center rounded-md bg-white hover:bg-gray-200"href="#">Ver más <i class="fa-solid fa-arrow-right"></i></a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 </html>

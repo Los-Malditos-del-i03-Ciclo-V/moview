@@ -2,28 +2,28 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 
 <!-- AUTO BANNER -->
-    <section th:fragment="auto-banner">
+<section th:fragment="auto-banner">
 
-        <div class="h-auto w-auto space-y-8 lg:space-y-0 my-20 mx-8 lg:mx-24 lg:my-20 grid lg:grid-cols-2 lg:gap-32">
-            <div class="space-y-4 md:space-y-6 font-Overlock justify-center flex flex-col">
-                <span class="font-extrabold">Disfruta</span>
-                <h2 class="font-extrabold text-3xl md:text-4xl xl:text-5xl">El Autocine: Entretenimiento seguro y
-                    nostálgico</h2>
-                <p class="font-semibold sm:text-xl xl:text-2xl">El autocine ofrece una experiencia de entretenimiento
-                    segura y nostálgica, ideal para disfrutar en familia y con amigos.</p>
-                <div class="space-x-2">
-                    <button
-                            class="border-2 border-black font-semibold hover:bg-secondaryColor hover:text-white text-xl xl:text-xl px-3 py-1">Ver
-                        Más</button>
-                    <button class="text-black font-semibold px-3 py-1 text-lg xl:text-xl">Registarse ></button>
-                </div>
-            </div>
-
-            <div class="w-auto">
-                <img th:src="@{/images/home/img-car.png}" class="h-auto lg:w-lvw" alt="Imagen de Carro">
+    <div class="h-auto w-auto space-y-8 lg:space-y-0 my-20 mx-8 lg:mx-24 lg:my-20 grid lg:grid-cols-2 lg:gap-32">
+        <div class="space-y-4 md:space-y-6 font-Overlock justify-center flex flex-col">
+            <span class="font-extrabold">Disfruta</span>
+            <h2 class="font-extrabold text-3xl md:text-4xl xl:text-5xl">El Autocine: Entretenimiento seguro y
+                nostálgico</h2>
+            <p class="font-semibold sm:text-xl xl:text-2xl">El autocine ofrece una experiencia de entretenimiento
+                segura y nostálgica, ideal para disfrutar en familia y con amigos.</p>
+            <div class="space-x-2">
+                <button
+                        class="border-2 border-black font-semibold hover:bg-secondaryColor hover:text-white text-xl xl:text-xl px-3 py-1">Ver
+                    Más</button>
+                <button class="text-black font-semibold px-3 py-1 text-lg xl:text-xl">Registarse ></button>
             </div>
         </div>
 
-    </section>
+        <div class="w-auto">
+            <img th:src="@{/images/home/img-car.png}" class="h-auto lg:w-lvw" alt="Imagen de Carro">
+        </div>
+    </div>
+
+</section>
 
 </html>

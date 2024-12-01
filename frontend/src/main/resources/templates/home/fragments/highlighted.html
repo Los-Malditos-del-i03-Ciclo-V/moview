@@ -1,52 +1,61 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
+<section th:fragment="highlighted">
 
-    <section th:fragment="highlighted">
-        <div class="w-auto h-auto flex flex-col justify-center font-Overlock space-y-24 my-20 mx-8 lg:m-24">
-            <div class="items-center justify-center space-y-6">
-                <h2 class="text-center text-black text-4xl md:text-5xl xl:text-6xl font-bold">Bienvenidos al
-                    Autocine</h2>
-                <p class="text-center text-black font-semibold text-lg sm:text-xl xl:text-2xl">Disfruta de una
-                    experiencia única
-                    en nuestro autocine, donde la diversión está garantizada</p>
+    <div class="h-auto w-auto m-auto font-plus-jakarta-sans text-white space-y-12 sm:space-y-0 grid grid-cols-1 sm:grid-cols-2 mx-4 xl:mx-32 2xl:my-40 items-center justify-center xl:space-x-12">
+        <div class="space-y-6 mx-8">
+            <h2 class="text-3xl sm:text-4xl xl:text-5xl">Por qué elegirnos?</h2>
+            <p class="text-base sm:text-xl xl:text-2xl">Con Moview, disfruta de una experiencia de autocine moderna, cómoda y
+                segura. Tecnología al servicio de tu experiencia</p>
+        </div>
+        <div>
+            <div class="flex space-x-2 border-gray-200 border-t border-b py-5 items-center justify-between max-w-xl sm:mr-12">
+                <div class="flex items-center justify-between space-x-3">
+                    <img th:src="@{images/home/us_icons_1.svg}" alt="Icono Nosotros">
+                    <h2 class="text-sm xl:text-base">Películas en pantalla grande, listados actualizados, en tu auto.
+                    </h2>
+                </div>
+                <i class="fa-solid fa-chevron-right"></i>
             </div>
-
-            <div class="space-y-20">
-                <div>
-                    <h2 class="text-black font-bold text-2xl md:text-3xl xl:text-4xl">Calidad de Imagen y Sonido
-                        excepcionales para una <br>experiencia inmersiva</h2>
+            <div class="flex space-x-2 border-gray-200 border-b py-5 items-center  justify-between max-w-xl sm:mr-12">
+                <div class="flex items-center justify-between space-x-3">
+                    <img th:src="@{images/home/us_icons_2.svg}" alt="Icono Nosotros">
+                    <h2 class="text-sm xl:text-base">Horarios flexibles proyecciones nocturnas, planifica ya.</h2>
                 </div>
-
-                <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-14 xl:gap-10">
-                    <div class="space-y-3 xl:space-y-6">
-                        <img th:src="@{/images/home/img-featured-1.png}" alt="">
-                        <h4 class="text-2xl font-bold">Comodidad en tu coche con amplios espacios y asientos
-                            reclinables</h4>
-                        <p class="font-semibold">Disfruta de una amplia variedad de películas de todos los géneros
-                        </p>
-                        <div class="font-extrabold"><a href="#">Ver más ></a></div>
-                    </div>
-
-                    <div class="space-y-3 xl:space-y-6">
-                        <img th:src="@{/images/home/img-featured-2.png}" alt="">
-                        <h4 class="text-2xl font-bold flex-1">Concesionario de confitería con deliciosos snacks y
-                            diversas bebidas</h4>
-                        <p class="font-semibold">Disfruta de tus películas favoritas mientras saboreas tus antojos
-                        </p>
-                        <div class="font-extrabold"><a href="#">Ver más ></a></div>
-                    </div>
-
-                    <div class="space-y-3 xl:space-y-6">
-                        <img th:src="@{/images/home/img-featured-3.png}" alt="">
-                        <h4 class="text-2xl font-bold">Tenemos una amplia selección de películas para todos los
-                            gustos y edades</h4>
-                        <p class="font-semibold">Desde clásicos hasta los últimos estrenos, tenemos todo para ti</p>
-                        <div class="font-extrabold"><a href="#">Ver más ></a></div>
-                    </div>
-
+                <i class="fa-solid fa-chevron-right"></i>
+            </div>
+            <div class="flex space-x-2 border-gray-200 border-b py-5 items-center justify-between max-w-xl sm:mr-12">
+                <div class="flex items-center justify-between space-x-3">
+                    <img th:src="@{images/home/us_icons_3.svg}" alt="Icono Nosotros">
+                    <h2 class="text-sm xl:text-base">Amplio espacio para poder ver tu pelicula con amplitud y calidad
+                    </h2>
                 </div>
+                <i class="fa-solid fa-chevron-right"></i>
+            </div>
+            <div class="flex space-x-2 border-gray-200 border-b py-5 items-center justify-between max-w-xl sm:mr-12">
+                <div class="flex items-center justify-between space-x-3">
+                    <img th:src="@{images/home/us_icons_4.svg}" alt="Icono Nosotros">
+                    <h2 class="text-sm xl:text-base">Aperitivos y bebidas entregados en tu auto con servicio de calidad
+                    </h2>
+                </div>
+                <i class="fa-solid fa-chevron-right"></i>
             </div>
         </div>
-    </section>
+    </div>
+    <div class="flex flex-col mx-4 text-white text-center font-plus-jakarta-sans h-auto items-center justify-center my-20 space-y-12 lg:space-y-20">
+        <div>
+            <h2 class="text-3xl sm:text-4xl xl:text-5xl">Ofertas y <br>Promociones especiales</h2>
+        </div>
+        <div class="bg-white py-1 px-1 min-[470px]:px-3 flex items-center justify-center space-x-2 lg:space-x-3 rounded-md">
+            <i class="fa-regular fa-envelope text-gray-400 text-2xl lg:text-3xl"></i>
+            <input type="email" placeholder="Ingresa tu Correo" class="text-sm px-1 w-44 min-[470px]:w-64 py-2 border border-none outline-none text-black rounded-none">
+            <a href="#" class="text-sm text-black font-bold px-2 py-1.5 text-center rounded-md bg-primaryColor hover:bg-primaryHoverColor duration-150">Reservar</a>
+        </div>
+        <div class="space-x-4">
+            <a href="#" class="rounded-full px-4 py-2 text-base lg:px-6 lg:text-xl border border-white hover:text-primaryHoverColor duration-200">Inicia Sesión</a>
+            <a href="#" class="rounded-full px-4 py-2 text-base lg:px-6 lg:text-xl border border-white hover:text-primaryHoverColor duration-200">Registrate</a>
+        </div>
+    </div>
+</section>
 
 </html>
