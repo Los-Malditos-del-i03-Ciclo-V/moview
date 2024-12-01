@@ -1,126 +1,67 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moview - Selección de Horario</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body class="bg-black text-white min-h-screen">
-    <!-- Header -->
-    <header class="bg-black/90 fixed w-full top-0 z-50">
-        <div class="container mx-auto px-4 py-3">
-            <nav class="flex justify-between items-center">
-                <div class="flex items-center space-x-4">
-                    <a th:href="@{/}" class="text-white hover:text-moview">
-                        <i class="fas fa-chevron-left"></i> Back
-                    </a>
-                    <div class="relative">
-                        <input type="text" placeholder="Select your movie" 
-                               class="bg-transparent border-b border-white/30 focus:border-moview outline-none px-2 py-1 w-48">
+<head th:replace="~{fragments/head :: head}"></head>
+<body class="bg-black text-white min-h-screen flex flex-col">
+
+<!-- HEADER SECTION -->
+<header th:replace="~{fragments/header-user :: header-user}"></header>
+
+<!-- MAIN CONTENT -->
+<main class="container mx-auto px-4 py-8 flex-grow">
+    <div class="max-w-7xl mx-auto">
+        <!-- Movie Details -->
+        <div class="mb-8 flex gap-8">
+            <!-- Movie Poster -->
+            <div class="w-1/3">
+                <img th:src="@{/images/movies/{image} (image=${movie.image})}"
+                     th:alt="${movie.title}"
+                     class="w-full h-auto rounded-lg shadow-lg">
+            </div>
+            <!-- Movie Info -->
+            <div class="w-2/3">
+                <h1 class="text-4xl font-bold mb-4" th:text="${movie.title}"></h1>
+                <p class="text-gray-400 mb-4" th:text="${movie.synopsis}"></p>
+                <div class="flex gap-4 text-sm text-gray-400 mb-6">
+                    <span th:text="${movie.duration + ' min'}"></span>
+                    <span th:text="${movie.category}"></span>
+                    <span th:text="${movie.clasification}"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projections Section -->
+        <div class="mt-8">
+            <h2 class="text-2xl font-bold mb-6">Horarios Disponibles</h2>
+
+            <!-- Grouped Projections -->
+            <div th:each="entry : ${groupedProjections}" class="mb-8">
+                <!-- Time Header -->
+                <h3 class="text-xl font-semibold mb-4 text-[#5CE1E6]"
+                    th:text="${#temporals.format(entry.key, 'HH:mm')} + ' hrs'">
+                </h3>
+
+                <!-- Dates for this time -->
+                <div class="grid grid-cols-4 gap-4">
+                    <div th:each="projection : ${entry.value}"
+                         class="border border-[#5CE1E6] rounded-lg p-4 text-center hover:bg-[#5CE1E6] hover:text-black transition-colors cursor-pointer flex flex-col gap-2"
+                         th:onclick="'window.location.href=\'/movies/buy/' + ${projection.id} + '\''">
+                        <span class="text-lg font-medium"
+                              th:text="${#temporals.format(projection.projectionDate, 'EEEE')}">
+                        </span>
+                        <span class="text-base"
+                              th:text="${#temporals.format(projection.projectionDate, 'd MMMM')}">
+                        </span>
+                        <span class="text-sm text-[#5CE1E6]"
+                              th:text="${#temporals.format(projection.projectionTime, 'HH:mm')} + ' hrs'">
+                        </span>
                     </div>
                 </div>
-                <div class="flex items-center space-x-4">
-                    <button class="text-white hover:text-moview">
-                        <i class="far fa-bell"></i>
-                    </button>
-                    <button class="text-white hover:text-moview">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Progress Bar -->
-    <div class="container mx-auto px-4 mt-20">
-        <div class="flex justify-between items-center py-8">
-            <div class="flex-1 flex items-center">
-                <div class="w-8 h-8 rounded-full bg-moview flex items-center justify-center">
-                    <i class="fas fa-check text-black"></i>
-                </div>
-                <div class="flex-1 h-0.5 bg-moview mx-2"></div>
             </div>
-            <div class="flex-1 flex items-center">
-                <div class="w-8 h-8 rounded-full border-2 border-moview flex items-center justify-center">
-                    <span class="text-moview">2</span>
-                </div>
-                <div class="flex-1 h-0.5 bg-white/20 mx-2"></div>
-            </div>
-            <div class="flex-1 flex items-center">
-                <div class="w-8 h-8 rounded-full border-2 border-white/20 flex items-center justify-center">
-                    <span class="text-white/20">3</span>
-                </div>
-                <div class="flex-1 h-0.5 bg-white/20 mx-2"></div>
-            </div>
-            <div class="flex items-center">
-                <div class="w-8 h-8 rounded-full border-2 border-white/20 flex items-center justify-center">
-                    <span class="text-white/20">4</span>
-                </div>
-            </div>
-        </div>
-        <div class="flex justify-between text-sm text-white/60 px-1">
-            <span>Movie</span>
-            <span>Ticket</span>
-            <span>Snack</span>
-            <span>Payment</span>
         </div>
     </div>
+</main>
 
-    <!-- Movie Content -->
-    <main class="container mx-auto px-4 py-8">
-        <div class="grid grid-cols-2 gap-8">
-            <!-- Movie Poster -->
-            <div class="relative">
-                <img th:src="${movie.image}" th:alt="${movie.title}" 
-                     class="w-full h-[500px] object-cover rounded-lg">
-            </div>
-
-            <!-- Movie Details and Schedule -->
-            <div>
-                <div class="mb-6">
-                    <h1 th:text="${movie.title}" class="text-3xl font-bold mb-2"></h1>
-                    <div class="flex space-x-4 text-white/60">
-                        <span th:text="${movie.duration + ' min'}"></span>
-                        <span th:text="${movie.genre}"></span>
-                        <span th:text="${movie.rating}"></span>
-                    </div>
-                </div>
-
-                <!-- Schedule Section -->
-                <div class="mb-6">
-                    <h2 class="text-xl font-semibold mb-4">Select Date and Time</h2>
-                    
-                    <!-- Date Selector -->
-                    <div class="flex space-x-4 mb-6 overflow-x-auto pb-2">
-                        <div th:each="projection : ${projections}" 
-                             class="flex-none text-center cursor-pointer hover:text-moview transition-colors">
-                            <div th:text="${#temporals.format(projection.dateTime, 'EEE')}" 
-                                 class="text-sm text-white/60"></div>
-                            <div th:text="${#temporals.format(projection.dateTime, 'd')}" 
-                                 class="text-xl font-bold"></div>
-                            <div th:text="${#temporals.format(projection.dateTime, 'MMM')}" 
-                                 class="text-sm"></div>
-                        </div>
-                    </div>
-
-                    <!-- Time Slots -->
-                    <div class="grid grid-cols-3 gap-4">
-                        <div th:each="projection : ${projections}" 
-                             class="bg-white/5 rounded-lg p-4 cursor-pointer hover:bg-moview/20 transition-colors">
-                            <div th:text="${#temporals.format(projection.dateTime, 'HH:mm')}" 
-                                 class="text-lg font-bold"></div>
-                            <div th:text="${'Sala ' + projection.room}" class="text-sm text-white/60"></div>
-                            <div th:text="${projection.availableSeats + ' asientos'}" 
-                                 class="text-sm text-white/60"></div>
-                            <div th:text="${'S/ ' + #numbers.formatDecimal(projection.price, 1, 2)}" 
-                                 class="text-moview font-bold mt-2"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
+<!-- FOOTER -->
+<footer th:replace="~{fragments/footer :: footer}"></footer>
 </body>
 </html>

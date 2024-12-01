@@ -19,36 +19,9 @@
     </script>
 </head>
 <body class="bg-black text-white min-h-screen flex flex-col">
-    <!-- Header -->
-    <header class="bg-black py-4">
-        <div class="container mx-auto px-4">
-            <nav class="flex justify-between items-center">
-                <!-- Logo y nombre -->
-                <div class="flex items-center space-x-2">
-                    <a th:href="@{/}" class="flex items-center space-x-2">
-                        <img th:src="@{/images/company/logo_white.png}" alt="Moview Logo" class="h-12 w-12">
-                        <span class="text-moview text-2xl font-bold">MOVIEW</span>
-                    </a>
-                </div>
-                
-                <!-- Enlaces de navegación -->
-                <div class="flex items-center space-x-8">
-                    <a th:href="@{/}" class="text-white hover:text-moview transition-colors">Inicio</a>
-                    <a th:href="@{/movies}" class="text-white hover:text-moview transition-colors">Películas</a>
-                    <a th:href="@{/confiteria}" class="text-white hover:text-moview transition-colors">Confitería</a>
-                </div>
-                
-                <!-- Botones de autenticación -->
-                <div class="flex items-center space-x-4">
-                    <a th:href="@{/login}" class="text-white hover:text-moview transition-colors">Iniciar</a>
-                    <a th:href="@{/register}" class="bg-transparent border-2 border-moview text-moview px-4 py-2 rounded-full hover:bg-moview hover:text-black transition-colors">
-                        Registrarse
-                    </a>
-                </div>
-            </nav>
-        </div>
-    </header>
 
+    <!-- HEADER SECTION -->
+    <header th:replace="~{fragments/header :: header}"></header>
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8 flex-grow">
         <!-- Películas Populares -->
@@ -69,7 +42,7 @@
                     <div class="flex justify-between items-center">
                         <span th:text="${movie.duration + ' min'}" 
                               class="text-gray-400"></span>
-                        <a th:href="@{'/tickets/' + ${movie.id}}" 
+                        <a th:href="@{/selected-movie/{id} (id=${movie.id})}"
                            class="bg-moview hover:bg-moview/80 text-black px-6 py-2 rounded-full transition duration-300">
                             Comprar Entrada
                         </a>
@@ -79,33 +52,7 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-black py-6 mt-auto">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col items-center justify-center space-y-6">
-                <!-- Logo en el centro -->
-                <img th:src="@{/images/company/logo_white.png}" alt="Moview Logo" class="h-12 w-12">
-                
-                <!-- Copyright -->
-                <p class="text-gray-400">Copyright 2024 Moview, All rights reserved.</p>
-                
-                <!-- Redes sociales -->
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <!-- FOOTER -->
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
 </body>
 </html>
