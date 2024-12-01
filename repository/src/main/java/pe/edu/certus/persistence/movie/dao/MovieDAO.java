@@ -14,11 +14,12 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "movie")
 public class MovieDAO {
+
     @Id
     @Column(name = "id")
     @Basic( optional = false )
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(name = "title")
     private String title;

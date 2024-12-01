@@ -63,7 +63,11 @@ public class MovieController {
     }
 
     @GetMapping("/edit/{id}")
+<<<<<<< HEAD
     public ModelAndView displayMovieEditPage(@PathVariable(name = "id") Long id){
+=======
+    public ModelAndView displayMovieEditPage(@PathVariable(name = "id") Integer id){
+>>>>>>> 238ea821ce6955909cf6544365bdee9815fa5c38
         ModelAndView modelAndView = new ModelAndView(MOVIE_EDIT_PAGE);
         MovieDTO movieDTO = movieAdapter.findEntityById(id);
         modelAndView.addObject("movie", movieDTO);
@@ -71,7 +75,11 @@ public class MovieController {
     }
 
     @DeleteMapping("/delete/{id}")
+<<<<<<< HEAD
     public String deleteMovie(@PathVariable(name = "id") Long id){
+=======
+    public String deleteMovie(@PathVariable(name = "id") Integer id){
+>>>>>>> 238ea821ce6955909cf6544365bdee9815fa5c38
         movieAdapter.deleteEntityById(id);
         return "redirect:/movies";
     }
