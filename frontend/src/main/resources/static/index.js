@@ -1,26 +1,13 @@
-const hamburger = document.getElementById('hamburger');
-const dropdownMenu = document.getElementById('dropdownMenu');
-const hamburgerIcon = document.getElementById('hamburgerIcon');
-const servicesMenuBtn = document.getElementById('servicesMenuBtn');
-const servicesDropdown = document.getElementById('servicesDropdown');
-const servicesMenuBtnMobile = document.getElementById('servicesMenuBtnMobile');
-const servicesDropdownMobile = document.getElementById('servicesDropdownMobile');
+const burger = document.querySelector('.burguer');
+const sidebar = document.getElementById('sidebar');
+const closeSidebar = document.getElementById('closeSidebar');
 
-hamburger.addEventListener('click', () => {
-    dropdownMenu.classList.toggle('hidden');
-    if (dropdownMenu.classList.contains('hidden')) {
-        hamburgerIcon.classList.remove('fa-xmark');
-        hamburgerIcon.classList.add('fa-bars');
-    } else {
-        hamburgerIcon.classList.remove('fa-bars');
-        hamburgerIcon.classList.add('fa-xmark');
-    }
+// Abrir el sidebar
+burger.addEventListener('click', () => {
+    sidebar.classList.remove('translate-x-full');
 });
 
-servicesMenuBtn.addEventListener('click', () => {
-    servicesDropdown.classList.toggle('hidden');
-});
-
-servicesMenuBtnMobile.addEventListener('click', () => {
-    servicesDropdownMobile.classList.toggle('hidden');
+// Cerrar el sidebar
+closeSidebar.addEventListener('click', () => {
+    sidebar.classList.add('translate-x-full');
 });

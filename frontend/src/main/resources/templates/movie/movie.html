@@ -1,10 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html xmlns:th="http://www.thymeleaf.org">
 
-</body>
+    <head>
+        <meta charset="utf-8">
+        <title>Moview - Movies List</title>
+    </head>
+
+    <body>
+
+    <div>
+        <h1>Movies List</h1>
+        <hr>
+
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Director</th>
+                <th>Synopsis</th>
+                <th>Image</th>
+                <th>Duration</th>
+                <th>Description</th>
+                <th>Clasification</th>
+                <th>Language</th>
+                <th>Category</th>
+                <th>Format</th>
+            </tr>
+            </thead>
+
+            <tbody class="table-group-divider">
+            <tr class="table table-striped" th:each="movie : ${moviesList}">
+                <td th:text="${movie.id}"></td>
+                <td th:text="${movie.title}"></td>
+                <td th:text="${movie.director}"></td>
+                <td th:text="${movie.synopsis}"></td>
+                <td th:text="${movie.image}"></td>
+                <td th:text="${movie.duration}"></td>
+                <td th:text="${movie.description}"></td>
+                <td th:text="${movie.clasification}"></td>
+                <td th:text="${movie.language}"></td>
+                <td th:text="${movie.category}"></td>
+                <td th:text="${movie.format}"></td>
+            </tr>
+            </tbody>
+
+        </table>
+        <a href="movie.html">Movie register</a>
+        </div>
+    </body>
 </html>
