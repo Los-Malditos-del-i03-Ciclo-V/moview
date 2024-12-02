@@ -1,15 +1,25 @@
 package pe.edu.certus.persistence.movie.adapters;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pe.edu.certus.model.movie.dto.MovieDTO;
 import pe.edu.certus.persistence.movie.dao.MovieDAO;
 import pe.edu.certus.persistence.essentials.converter.ForConvert;
+import pe.edu.certus.persistence.projection.adapters.ProjectionConvertersAdapter;
+
+import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 @Component
 public class MovieConvertersAdapter implements ForConvert<MovieDAO, MovieDTO> {
+    
+    @Autowired
+    private ProjectionConvertersAdapter projectionConvertersAdapter;
+
     @Override
     public MovieDAO convertToDao(MovieDTO dto) {
-        return MovieDAO.builder()
+        MovieDAO movieDAO = MovieDAO.builder()
+                .id(dto.getId())
                 .title(dto.getTitle())
                 .director(dto.getDirector())
                 .synopsis(dto.getSynopsis())
@@ -20,7 +30,9 @@ public class MovieConvertersAdapter implements ForConvert<MovieDAO, MovieDTO> {
                 .language(dto.getLanguage())
                 .category(dto.getCategory())
                 .format(dto.getFormat())
+                .projections(new ArrayList<>())
                 .build();
+        return movieDAO;
     }
 
     @Override
@@ -37,6 +49,11 @@ public class MovieConvertersAdapter implements ForConvert<MovieDAO, MovieDTO> {
                 .language(dao.getLanguage())
                 .category(dao.getCategory())
                 .format(dao.getFormat())
+                .projections(dao.getProjections() != null ? 
+                    dao.getProjections().stream()
+                        .map(projectionConvertersAdapter::convertToDto)
+                        .collect(Collectors.toList()) : 
+                    new ArrayList<>())
                 .build();
     }
 }

@@ -17,19 +17,13 @@ import java.util.List;
 public class ProjectionFactoryAdapter implements ForFactory<ProjectionDAO, ProjectionDTO> {
 
     @Autowired
-    ForManagingProjection forManagingProjection;
+    private ForManagingProjection forManagingProjection;
 
     @Autowired
-    ForManagingMovie forManagingMovie;
+    private ForManagingMovie forManagingMovie;
 
     @Autowired
-    ProjectionConvertersAdapter forProjectionConvertersAdapter;
-
-    @Override
-    public ProjectionDAO createAndSaveAnyDao(ProjectionDTO projectionDTO) {
-        ProjectionDAO projectionDAO = forProjectionConvertersAdapter.convertToDao(projectionDTO);
-        return forManagingProjection.save(projectionDAO);
-    }
+    private ProjectionConvertersAdapter forProjectionConvertersAdapter;
 
     @PostConstruct
     public void init() {
@@ -39,70 +33,40 @@ public class ProjectionFactoryAdapter implements ForFactory<ProjectionDAO, Proje
     }
 
     @Override
+    public ProjectionDAO createAndSaveAnyDao(ProjectionDTO projectionDTO) {
+        ProjectionDAO projectionDAO = forProjectionConvertersAdapter.convertToDao(projectionDTO);
+        return forManagingProjection.save(projectionDAO);
+    }
+
+    @Override
     public void createDefaultEntities() {
-        
         List<Integer> movies = forManagingMovie.findAll().stream()
                 .map(movie -> movie.getId())
                 .toList();
 
-        createAndSaveAnyDao(ProjectionDTO.builder()
-                .projectionDate(LocalDate.of(2024, 1, 3))
-                .projectionTime(LocalTime.of(21, 0))
-                .movieId(movies.get(0))
-                .build());
+        // Crear 10 proyecciones base que se repetirán para cada película
+        LocalDate startDate = LocalDate.of(2024, 1, 3);
+        LocalTime[] times = {
+            LocalTime.of(10, 0),  // 10:00 AM
+            LocalTime.of(12, 30), // 12:30 PM
+            LocalTime.of(15, 0),  // 3:00 PM
+            LocalTime.of(17, 30), // 5:30 PM
+            LocalTime.of(20, 0),  // 8:00 PM
+            LocalTime.of(22, 30), // 10:30 PM
+            LocalTime.of(13, 0),  // 1:00 PM
+            LocalTime.of(16, 0),  // 4:00 PM
+            LocalTime.of(18, 30), // 6:30 PM
+            LocalTime.of(21, 0)   // 9:00 PM
+        };
 
-        createAndSaveAnyDao(ProjectionDTO.builder()
-                .projectionDate(LocalDate.of(2024, 1, 4))
-                .projectionTime(LocalTime.of(22, 0))
-                .movieId(movies.get(1))
-                .build());
-
-        createAndSaveAnyDao(ProjectionDTO.builder()
-                .projectionDate(LocalDate.of(2024, 1, 5))
-                .projectionTime(LocalTime.of(23, 0))
-                .movieId(movies.get(2))
-                .build());
-
-        createAndSaveAnyDao(ProjectionDTO.builder()
-                .projectionDate(LocalDate.of(2024, 1, 6))
-                .projectionTime(LocalTime.of(2, 0))
-                .movieId(movies.get(3))
-                .build());
-
-        createAndSaveAnyDao(ProjectionDTO.builder()
-                .projectionDate(LocalDate.of(2024, 1, 7))
-                .projectionTime(LocalTime.of(3, 0))
-                .movieId(movies.get(4))
-                .build());
-
-        createAndSaveAnyDao(ProjectionDTO.builder()
-                .projectionDate(LocalDate.of(2024, 1, 8))
-                .projectionTime(LocalTime.of(4, 0))
-                .movieId(movies.get(5))
-                .build());
-
-        createAndSaveAnyDao(ProjectionDTO.builder()
-                .projectionDate(LocalDate.of(2024, 1, 9))
-                .projectionTime(LocalTime.of(5, 0))
-                .movieId(movies.get(6))
-                .build());
-
-        createAndSaveAnyDao(ProjectionDTO.builder()
-                .projectionDate(LocalDate.of(2024, 1, 10))
-                .projectionTime(LocalTime.of(6, 0))
-                .movieId(movies.get(7))
-                .build());
-
-        createAndSaveAnyDao(ProjectionDTO.builder()
-                .projectionDate(LocalDate.of(2024, 1, 11))
-                .projectionTime(LocalTime.of(7, 0))
-                .movieId(movies.get(8))
-                .build());
-
-        createAndSaveAnyDao(ProjectionDTO.builder()
-                .projectionDate(LocalDate.of(2024, 1, 12))
-                .projectionTime(LocalTime.of(8, 0))
-                .movieId(movies.get(9))
-                .build());
+        for (Integer movieId : movies) {
+            for (int i = 0; i < 10; i++) {
+                createAndSaveAnyDao(ProjectionDTO.builder()
+                        .projectionDate(startDate.plusDays(i))
+                        .projectionTime(times[i])
+                        .movieId(movieId)
+                        .build());
+            }
+        }
     }
 }
