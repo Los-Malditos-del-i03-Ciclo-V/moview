@@ -15,7 +15,6 @@ import java.time.LocalTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-
 @Entity
 @Table(name = "projection")
 public class ProjectionDAO {
@@ -29,8 +28,13 @@ public class ProjectionDAO {
     private LocalDate projectionDate;
     private LocalTime projectionTime;
 
+<<<<<<< Updated upstream
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_movie_id", referencedColumnName = "id")
+=======
+    @ManyToOne
+    @JoinColumn(name = "movie_id")
+>>>>>>> Stashed changes
     private MovieDAO movie;
 
 }

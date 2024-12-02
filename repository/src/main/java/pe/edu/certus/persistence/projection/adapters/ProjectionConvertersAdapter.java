@@ -15,29 +15,27 @@ public class ProjectionConvertersAdapter implements ForConvert<ProjectionDAO, Pr
 
 
     @Override
-    public ProjectionDAO convertToDao(ProjectionDTO projectionDTO) {
-
+    public ProjectionDAO convertToDao(ProjectionDTO dto) {
         ProjectionDAO projectionDAO = ProjectionDAO.builder()
-                .projectionDate(projectionDTO.getProjectionDate())
-                .projectionTime(projectionDTO.getProjectionTime())
+                .id(dto.getId())
+                .projectionDate(dto.getProjectionDate())
+                .projectionTime(dto.getProjectionTime())
                 .build();
-
-        if(projectionDTO.getMovieId() != null) {
-            projectionDAO.setMovie(forManagingMovie.findById(projectionDTO.getMovieId()).orElse(null));
+        
+        if (dto.getMovieId() != null) {
+            projectionDAO.setMovie(forManagingMovie.findById(dto.getMovieId()).orElse(null));
         }
-
+        
         return projectionDAO;
     }
-
+    
     @Override
-    public ProjectionDTO convertToDto(ProjectionDAO projectionDAO) {
+    public ProjectionDTO convertToDto(ProjectionDAO dao) {
         return ProjectionDTO.builder()
-                .id(projectionDAO.getId())
-                .projectionDate(projectionDAO.getProjectionDate())
-                .projectionTime(projectionDAO.getProjectionTime())
-                .movieId(projectionDAO.getMovie()
-                        != null ? projectionDAO.getMovie().getId() : null)
+                .id(dao.getId())
+                .projectionDate(dao.getProjectionDate())
+                .projectionTime(dao.getProjectionTime())
+                .movieId(dao.getMovie() != null ? dao.getMovie().getId() : null)
                 .build();
-
     }
 }

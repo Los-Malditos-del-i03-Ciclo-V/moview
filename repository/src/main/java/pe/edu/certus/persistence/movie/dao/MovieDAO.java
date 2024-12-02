@@ -32,4 +32,9 @@ public class MovieDAO {
     private String category;
     private String format;
 
+<<<<<<< Updated upstream
+=======
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "movie", fetch = FetchType.LAZY)
+    private List<ProjectionDAO> projections;
+>>>>>>> Stashed changes
 }

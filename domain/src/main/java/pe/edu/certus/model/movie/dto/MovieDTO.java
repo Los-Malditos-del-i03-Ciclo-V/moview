@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import pe.edu.certus.model.projection.dto.ProjectionDTO;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -22,5 +25,6 @@ public class MovieDTO {
     private String language;
     private String category;
     private String format;
+    private List<ProjectionDTO> projections;
 
 }
