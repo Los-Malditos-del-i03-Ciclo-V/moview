@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymleaf.org" lang="es">
-<header th:fragment="header" class="h-28 w-full bg-black absolute font-m-plus-rounded-1c z-50">
-    <div class="flex justify-between items-center text-white mx-4 mt-6 min-[530px]:mx-16">
-        <!-- Logo y Nombre -->
-        <div class="flex items-center justify-center space-x-2 min-[530px]:space-x-8">
-            <a th:href="@{/home}">
-                <img th:src="@{images/company/logo_moview.svg}" class="h-16 w-auto" alt="Logo Empresa">
-            </a>
-            <a th:href="@{/home}">
-                <h1 class="text-2xl text-primaryColor font-m-plus-rounded-1c font-extrabold">MOVIEW</h1>
-            </a>
-        </div>
+    <header th:fragment="header" class="h-28 w-full bg-black absolute font-m-plus-rounded-1c z-50">
+        <div class="flex justify-between items-center text-white mx-4 mt-6 min-[530px]:mx-16">
+            <!-- Logo y Nombre -->
+            <div class="flex items-center justify-center space-x-2 min-[530px]:space-x-8">
+                <a th:href="@{/home}">
+                    <img th:src="@{images/company/logo_moview.svg}" class="h-16 w-auto" alt="Logo Empresa">
+                </a>
+                <a th:href="@{/home}">
+                    <h1 class="text-2xl text-primaryColor font-m-plus-rounded-1c font-extrabold">MOVIEW</h1>
+                </a>
+            </div>
 
-        <!-- Links de navegación -->
-        <div class="max-[1385px]:hidden space-x-2">
-            <a th:href="@{/home}" class="text-lg px-12 py-2 rounded-full border hover:text-black hover:bg-primaryColor duration-200">Inicio</a>
-            <a th:href="@{/movies}" class="text-lg px-12 py-2 rounded-3xl hover:text-primaryColor duration-200">Películas</a>
-            <a th:href="@{/confiteria}" class="text-lg px-12 py-2 rounded-3xl hover:text-primaryColor duration-200">Snacks</a>
-        </div>
-
-        <!-- Login y Registro -->
-        <div class="max-[1385px]:hidden flex justify-around items-center space-x-6">
-            <a th:href="@{/login}" class="text-lg px-10 py-2 rounded-full hover:text-primaryColor duration-200">Iniciar</a>
-            <div>|</div>
-            <a th:href="@{/register}" class="text-lg text-primaryColor px-12 py-2 rounded-full border border-primaryColor hover:text-black hover:bg-primaryColor duration-200">Registro</a>
-        </div>
-
-        <!-- Menú hamburguesa -->
-        <span class="burguer min-[1385px]:hidden cursor-pointer">
+            <!-- Links de navegación -->
+            <div class="max-[1385px]:hidden space-x-2">
+                <a th:href="@{/home}" class="text-lg px-12 py-2 rounded-full border hover:text-black hover:bg-primaryColor duration-200">Inicio</a>
+                <a th:href="@{/movies}" class="text-lg px-12 py-2 rounded-3xl hover:text-primaryColor duration-200">Películas</a>
+                <a th:href="@{/snacks}" class="text-lg px-12 py-2 rounded-3xl hover:text-primaryColor duration-200">Snacks</a>
+            </div>
+    
+            <!-- Login y Registro -->
+            <div class="max-[1385px]:hidden flex justify-around items-center space-x-6">
+                <a th:href="@{/login}" class="text-lg px-10 py-2 rounded-full hover:text-primaryColor duration-200">Iniciar</a>
+                <div>|</div>
+                <a th:href="@{/register}" class="text-lg text-primaryColor px-12 py-2 rounded-full border border-primaryColor hover:text-black hover:bg-primaryColor duration-200">Registro</a>
+            </div>
+    
+            <!-- Menú hamburguesa -->
+            <span class="burguer min-[1385px]:hidden cursor-pointer">
                 <i class="fa-solid fa-bars-staggered text-primaryColor text-3xl hover:text-primaryHoverColor"></i>
             </span>
     </div>
