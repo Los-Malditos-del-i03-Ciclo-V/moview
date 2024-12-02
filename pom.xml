@@ -22,12 +22,12 @@
 		<developer/>
 	</developers>
     <modules>
-		<module>domain</module>
 		<module>repository</module>
 		<module>frontend</module>
 		<module>bootloader</module>
 		<module>controller</module>
 		<module>service</module>
+		<module>domain</module>
 	</modules>
     <scm>
 		<connection/>

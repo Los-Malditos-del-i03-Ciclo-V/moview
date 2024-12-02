@@ -22,6 +22,14 @@ CREATE TABLE movies (
     format VARCHAR(50)
 );
 
+CREATE TABLE projection (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    projection_date DATE NOT NULL,
+    projection_time TIME NOT NULL,
+    movie_id INT,
+    FOREIGN KEY (movie_id) REFERENCES movies(id) ON DELETE CASCADE
+);
+
 CREATE TABLE ticket (
     id INT AUTO_INCREMENT PRIMARY KEY,
     space_code VARCHAR(255) NOT NULL,
