@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 
-    <footer th:fragment="footer" class="h-autob w-auto bg-white p-2 space-y-8 lg:space-y-0 lg:px-4">
-        <div class="text-black flex flex-col space-y-6 lg:flex-row text-center items-center lg:justify-between lg:mx-24">
-            <div class="space-x-6 lg:mt-6">
-                <a href="#" class="rounded-full border border-black px-4 py-3"><i class="fa-brands fa-facebook-f text-xl"></i></a>
-                <a href="#" class="rounded-full border border-black px-4 py-3"><i class="fa-brands fa-instagram text-xl"></i></a>
-                <a href="#" class="rounded-full border border-black px-4 py-3"><i class="fa-brands fa-x-twitter text-xl"></i></a>
-                <a href="#" class="rounded-full border border-black px-4 py-3"><i class="fa-brands fa-linkedin-in text-xl"></i></a>
+    <footer th:fragment="footer" class="h-auto w-auto bg-white py-8 lg:py-2 mx-2 space-y-8 lg:space-y-0 lg:px-4">
+        <div class="text-black flex flex-col space-y-6 lg:space-y-0 lg:flex-row text-center items-center justify-center lg:justify-around">
+            <div class="flex space-x-3 lg:space-x-6">
+                <a href="#" class="rounded-full border border-black h-14 w-14 flex items-center justify-center hover:text-primaryHoverColor hover:bg-black duration-200"><i class="fa-brands fa-facebook-f text-xl"></i></a>
+                <a href="#" class="rounded-full border border-black h-14 w-14 flex items-center justify-center hover:text-primaryHoverColor hover:bg-black duration-200"><i class="fa-brands fa-instagram text-xl"></i></a>
+                <a href="#" class="rounded-full border border-black h-14 w-14 flex items-center justify-center hover:text-primaryHoverColor hover:bg-black duration-200"><i class="fa-brands fa-x-twitter text-xl"></i></a>
+                <a href="#" class="rounded-full border border-black h-14 w-14 flex items-center justify-center hover:text-primaryHoverColor hover:bg-black duration-200"><i class="fa-brands fa-linkedin-in text-xl"></i></a>
             </div>           
-            <div class="my-8">
-                <img th:src="@{images/company/logo_moview.svg}" alt="">
+            <div class="#">
+                <img th:src="@{images/company/logo_moview.svg}" class="w-24 h-24" alt="#">
             </div>        
             <div class="text-base">
                 <span>Copyright@ 2024 Moview. Todos los derechos reservados</span>
