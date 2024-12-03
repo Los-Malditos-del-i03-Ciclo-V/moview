@@ -1642,6 +1642,10 @@ video {
     justify-content: space-around;
   }
 
+  .lg\:justify-around{
+    justify-content: space-around;
+  }
+
   .lg\:gap-32{
     gap: 8rem;
   }
