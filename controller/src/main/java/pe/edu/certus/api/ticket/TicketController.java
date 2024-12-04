@@ -18,8 +18,12 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Controller
-@SessionAttributes("selectedMovieId")
-
+@RequestMapping("/ticket")
 public class TicketController {
+
+    @GetMapping()
+    public String displayTicketPage(){
+        return "ticket/ticket";
+    }
 
 }

@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/home")
+@RequestMapping("/register")
 public class RegisterController {
     private static final String REGISTER_PAGE = "auth/register/register";
 
-    @GetMapping("/register")
+    @GetMapping("")
     public String displaRegisterPage() {
         return REGISTER_PAGE;
     }

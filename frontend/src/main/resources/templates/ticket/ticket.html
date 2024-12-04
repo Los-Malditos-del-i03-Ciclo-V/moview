@@ -1,26 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moview - Selección de Asientos</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body class="bg-black text-white min-h-screen">
-    <!-- Header -->
-    <header class="bg-black/90 fixed w-full top-0 z-50">
-        <div class="container mx-auto px-4 py-3">
-            <nav class="flex justify-between items-center">
-                <div class="flex items-center space-x-4">
-                    <a th:href="@{/movie-selection/{id}(id=${projection.movieId})}" class="text-white hover:text-moview">
-                        <i class="fas fa-chevron-left"></i> Back
-                    </a>
-                </div>
-            </nav>
-        </div>
-    </header>
+<th:block th:replace="~{fragments/head :: head}"></th:block>
 
+<body class="bg-black text-white min-h-screen">
+    <!-- HEADER SECTION -->
+    <header th:replace="~{fragments/header :: header}"></header>
     <!-- Progress Bar -->
     <div class="container mx-auto px-4 mt-20">
         <div class="flex justify-between items-center py-8">
@@ -59,26 +43,26 @@
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
         <!-- Projection Info -->
-        <div class="mb-8">
-            <div class="text-2xl font-bold mb-4">Selección de Asientos</div>
-            <div class="bg-white/5 rounded-lg p-4">
-                <div class="flex justify-between items-center">
-                    <div>
-                        <div th:text="${#temporals.format(projection.dateTime, 'EEEE, d MMMM')}" 
-                             class="text-lg font-semibold"></div>
-                        <div th:text="${#temporals.format(projection.dateTime, 'HH:mm')}" 
-                             class="text-xl font-bold text-moview"></div>
-                        <div th:text="${'Sala ' + projection.room}" class="text-sm text-white/60"></div>
-                    </div>
-                    <div class="text-right">
-                        <div th:text="${'S/ ' + #numbers.formatDecimal(projection.price, 1, 2)}" 
-                             class="text-2xl font-bold text-moview"></div>
-                        <div th:text="${projection.availableSeats + ' asientos disponibles'}" 
-                             class="text-sm text-white/60"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!--        <div class="mb-8">-->
+<!--            <div class="text-2xl font-bold mb-4">Selección de Asientos</div>-->
+<!--            <div class="bg-white/5 rounded-lg p-4">-->
+<!--                <div class="flex justify-between items-center">-->
+<!--                    <div>-->
+<!--                        <div th:text="${#temporals.format(projection.dateTime, 'EEEE, d MMMM')}"-->
+<!--                             class="text-lg font-semibold"></div>-->
+<!--                        <div th:text="${#temporals.format(projection.dateTime, 'HH:mm')}"-->
+<!--                             class="text-xl font-bold text-moview"></div>-->
+<!--                        <div th:text="${'Sala ' + projection.room}" class="text-sm text-white/60"></div>-->
+<!--                    </div>-->
+<!--                    <div class="text-right">-->
+<!--                        <div th:text="${'S/ ' + #numbers.formatDecimal(projection.price, 1, 2)}"-->
+<!--                             class="text-2xl font-bold text-moview"></div>-->
+<!--                        <div th:text="${projection.availableSeats + ' asientos disponibles'}"-->
+<!--                             class="text-sm text-white/60"></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
 
         <!-- Seat Selection -->
         <div class="bg-white/5 rounded-lg p-6">
@@ -90,7 +74,7 @@
             <!-- Seat Grid -->
             <div class="grid grid-cols-8 gap-4 max-w-3xl mx-auto">
                 <!-- Seats will be dynamically generated here -->
-                <div th:each="i : ${#numbers.sequence(1, 40)}" 
+                <div th:each="i : ${#numbers.sequence(1, 40)}"
                      class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center cursor-pointer hover:bg-moview/50 transition-colors">
                     <span th:text="${i}" class="text-sm"></span>
                 </div>
