@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-    <!-- Sección List-Movies -->
-    <section th:fragment="list-movies" class="relative w-full bg-black mt-24">
+    <section th:fragment="main-screen" class="relative w-full bg-black mt-24">
         <div class="relative flex flex-row items-center justify-between">
-            <!-- Columna de la imagen (50%) -->
             <div class="w-1/2">
-                <!-- Contenedor con tamaño ajustado para la imagen -->
                 <div class="w-[250px] h-[350px] overflow-hidden rounded-lg">
                     <img th:src="@{/images/movies/main-screen.png}" 
                          alt="The Godfather" 
@@ -13,7 +10,6 @@
                 </div>
             </div>
 
-            <!-- Columna del texto y botones (50%) -->
             <div class="w-1/2 flex flex-col items-start justify-center text-left space-y-4 p-8">
                 <h1 class="text-4xl font-bold text-white">The Godfather</h1>
                 <p class="text-lg text-gray-300">
@@ -31,6 +27,7 @@
         </div>
     </section>
 </html>
+
 
 
 

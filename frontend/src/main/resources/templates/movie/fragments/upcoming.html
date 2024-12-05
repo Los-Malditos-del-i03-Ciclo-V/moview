@@ -1,40 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-<head><link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /></head>
-
   <section th:fragment="upcoming" class="py-8 bg-gray-900 text-white">
-    <div class="container mx-auto">
-      <h3 class="text-2xl font-bold mb-4">PROXIMAMENTE</h3>
-      <div class="flex overflow-x-auto space-x-4">
-        <!-- Cada tarjeta -->
-        <div class="bg-gray-800 rounded-lg shadow-md w-50">
-          <img th:src="@{/images/movies/la_sustancia.jpeg}" alt="Sustancia" class="w-full h-48 object-cover rounded-t-lg">
-        </div>
-        <div class="bg-gray-800 rounded-lg shadow-md w-32">
-          <img th:src="@{/images/movies/joker.png}" alt="Joker" class="w-full h-48 object-cover rounded-t-lg">
-        </div>
-        <div class="bg-gray-800 rounded-lg shadow-md w-32">
-          <img th:src="@{/images/movies/vaguito.png}" alt="Vaguito" class="w-full h-48 object-cover rounded-t-lg">
-        </div>
-        <div class="bg-gray-800 rounded-lg shadow-md w-32">
-          <img th:src="@{/images/movies/barbie.jpeg}" alt="Sustancia" class="w-full h-48 object-cover rounded-t-lg">
-        </div>
-        <div class="bg-gray-800 rounded-lg shadow-md w-32">
-          <img th:src="@{/images/movies/cristiano_ronaldo.jpg}" alt="Cristiano Ronaldo" class="w-full h-48 object-cover rounded-t-lg">
-        </div>
-        <!--
-        <div class="bg-gray-800 rounded-lg shadow-md w-32">
-            <img th:src="@{/images/movies/endgame.jpeg}" alt="Cristiano Ronaldo" class="w-full h-48 object-cover rounded-t-lg">
-          </div>
-          <div class="bg-gray-800 rounded-lg shadow-md w-32">
-            <img th:src="@{/images/movies/uncharted.jpg}" alt="Cristiano Ronaldo" class="w-full h-48 object-cover rounded-t-lg">
-          </div>
-          <div class="bg-gray-800 rounded-lg shadow-md w-32">
-            <img th:src="@{/images/movies/spiderman.jpg}" alt="Cristiano Ronaldo" class="w-full h-48 object-cover rounded-t-lg">
-          </div>>
-          -->
+    <h3 class="text-2xl font-bold mb-4 text-center">PROXIMAMENTE</h3>
+    <div class="flex space-x-2 animate-loop-scroll">
+      <!-- Cada tarjeta con el efecto hover -->
+      <div class="bg-gray-800 rounded-lg shadow-md w-[200px] overflow-hidden transform transition-all hover:scale-110 hover:border-4 hover:border-white hover:ring-2 hover:ring-white">
+        <img th:src="@{/images/movies/pelicula1-PR.jpg}" class="w-full h-auto rounded-lg">
+      </div>
+      <div class="bg-gray-800 rounded-lg shadow-md w-[200px] overflow-hidden transform transition-all hover:scale-110 hover:border-4 hover:border-white hover:ring-2 hover:ring-white">
+        <img th:src="@{/images/movies/pelicula2-PR.png}" class="w-full h-auto rounded-lg">
+      </div>
+      <div class="bg-gray-800 rounded-lg shadow-md w-[200px] overflow-hidden transform transition-all hover:scale-110 hover:border-4 hover:border-white hover:ring-2 hover:ring-white">
+        <img th:src="@{/images/movies/pelicula3-PR.jpg}" class="w-full h-auto rounded-lg">
+      </div>
+      <div class="bg-gray-800 rounded-lg shadow-md w-[200px] overflow-hidden transform transition-all hover:scale-110 hover:border-4 hover:border-white hover:ring-2 hover:ring-white">
+        <img th:src="@{/images/movies/pelicula4-PR.jpg}" class="w-full h-auto rounded-lg">
+      </div>
+      <div class="bg-gray-800 rounded-lg shadow-md w-[200px] overflow-hidden transform transition-all hover:scale-110 hover:border-4 hover:border-white hover:ring-2 hover:ring-white">
+        <img th:src="@{/images/movies/pelicula5-PR.jpg}" class="w-full h-auto rounded-lg">
       </div>
     </div>
   </section>
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </html>
