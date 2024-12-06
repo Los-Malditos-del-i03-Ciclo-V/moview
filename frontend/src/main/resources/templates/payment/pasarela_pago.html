@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pasarela de Pago - Moview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --primary-color: #314852; /* Azul oscuro */
+    }
+    /* Estilos adicionales para el modal */
+    .modal-bg {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans relative">
+
+<div class="min-h-screen flex items-center justify-center">
+  <div class="w-full max-w-lg bg-white p-8 shadow-md rounded-lg">
+    <h2 class="text-2xl font-bold mb-6 text-center text-[var(--primary-color)]">Pasarela de Pago - Moview</h2>
+
+    <!-- Información del pago -->
+    <div class="mb-4">
+      <label for="name" class="block text-gray-600 mb-2">Nombre del titular</label>
+      <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)]" placeholder="Ingresa tu nombre completo">
+    </div>
+
+    <!-- Tipo de documento y número -->
+    <div class="mb-4 flex space-x-4">
+      <div class="w-1/2">
+        <label for="documentType" class="block text-gray-600 mb-2">Tipo de documento</label>
+        <select id="documentType" class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)]">
+          <option value="dni">DNI</option>
+          <option value="carnet">Carnet de Extranjería</option>
+          <option value="pasaporte">Pasaporte</option>
+          <option value="ruc">RUC</option>
+        </select>
+      </div>
+
+      <div class="w-1/2">
+        <label for="documentNumber" class="block text-gray-600 mb-2">Número de documento</label>
+        <input type="text" id="documentNumber" class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)]" placeholder="12345678">
+      </div>
+    </div>
+
+    <!-- Número de tarjeta -->
+    <div class="mb-4">
+      <label for="card" class="block text-gray-600 mb-2">Número de tarjeta</label>
+      <input type="text" id="card" class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)]" placeholder="1234 5678 9012 3456">
+      <!-- Iconos de tarjetas -->
+      <div class="flex space-x-2 mt-2">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" class="h-6">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/MasterCard_Logo.svg" alt="Mastercard" class="h-6">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/American_Express_logo_%282018%29.svg" alt="American Express" class="h-6">
+      </div>
+    </div>
+
+    <div class="flex space-x-4 mb-4">
+      <div class="w-1/2">
+        <label for="expiry" class="block text-gray-600 mb-2">Fecha de expiración</label>
+        <input type="text" id="expiry" class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)]" placeholder="MM/AA">
+      </div>
+      <div class="w-1/2">
+        <label for="cvc" class="block text-gray-600 mb-2">CVC</label>
+        <input type="text" id="cvc" class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)]" placeholder="123">
+      </div>
+    </div>
+
+    <!-- Información adicional -->
+    <div class="mb-6">
+      <label for="email" class="block text-gray-600 mb-2">Correo electrónico</label>
+      <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)]" placeholder="Ingresa tu correo">
+    </div>
+
+    <!-- Botón de pago -->
+    <button onclick="confirmPayment()" class="w-full bg-[var(--primary-color)] text-white py-3 rounded-lg font-bold hover:bg-opacity-90 transition duration-300">
+      Realizar Pago
+    </button>
+
+    <!-- Footer -->
+    <p class="text-center text-gray-500 text-sm mt-6">
+      Pago 100% seguro y protegido
+    </p>
+  </div>
+</div>
+
+<!-- Modal de confirmación -->
+<div id="confirmationModal" class="fixed inset-0 flex items-center justify-center hidden modal-bg">
+  <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+    <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-4">¡Pago realizado con éxito!</h3>
+    <p class="text-gray-600 mb-4">Gracias por tu compra en Moview.</p>
+    <button onclick="closeModal()" class="bg-[var(--primary-color)] text-white px-6 py-2 rounded-lg font-bold hover:bg-opacity-90 transition duration-300">
+      Cerrar
+    </button>
+  </div>
+</div>
+
+<script>
+  function confirmPayment() {
+    document.getElementById('confirmationModal').classList.remove('hidden');
+  }
+  function closeModal() {
+    document.getElementById('confirmationModal').classList.add('hidden');
+  }
+</script>
+</body>
+</html>
