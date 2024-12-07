@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+    <section th:fragment="steps-buy">
+        <div class="flex justify-center my-6 items-center space-x-14 sm:space-x-28 relative">
+            <!-- Película -->
+            <div class="flex flex-col items-center justify-center space-y-4 relative">
+                <i class="fa-solid fa-check text-2xl h-10 w-10 sm:h-10 sm:w-10 flex bg-white text-black items-center justify-center border border-white rounded-full"></i>
+                <span>Película</span>
+                <!-- Línea a la derecha -->
+                <div class="absolute top-1 left-8 w-20 sm:w-36 h-0.5 bg-white"></div>
+            </div>
+            
+            <!-- Ticket -->
+            <div class="flex flex-col items-center justify-center space-y-4 relative">
+                <i class="fa-solid fa-check text-2xl h-10 w-10 sm:h-10 sm:w-10 flex bg-white text-black items-center justify-center border border-white rounded-full"></i>
+                <span>Ticket</span>
+                <!-- Línea a la derecha -->
+                <div class="absolute top-1 left-8 w-20 sm:w-36 h-0.5 bg-white"></div>
+            </div>
+            
+            <!-- Snack -->
+            <div class="flex flex-col items-center justify-center space-y-4 relative">
+                <i class="fa-solid fa-check text-2xl h-10 w-10 sm:h-10 sm:w-10 flex bg-white text-black items-center justify-center border border-white rounded-full"></i>
+                <span>Snack</span>
+                <!-- Línea a la derecha -->
+                <div class="absolute top-1 left-8 w-20 sm:w-36 h-0.5 bg-white"></div>
+            </div>
+            
+            <!-- Pago -->
+            <div class="flex flex-col items-center justify-center space-y-4 relative">
+                <i class="fa-solid fa-check text-2xl h-10 w-10 sm:h-10 sm:w-10 flex bg-white text-black items-center justify-center border border-white rounded-full"></i>
+                <span>Pago</span>
+            </div>
+        </div>
+        <!-- Button Atrás -->
+        <div class="min-[1385px]:hidden">
+            <a th:href="@{/home}" class="text-lg px-12 py-2 hover:text-primaryColor duration-200 flex items-center justify-center space-x-4"><i class="fa-regular fa-circle-left text-3xl"></i> <span>Atras</span></a>
+        </div>
+    </section>
+</html>
