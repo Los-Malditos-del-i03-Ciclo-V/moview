@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
 
-<section th:fragment="parking">
-    <div class="text-white">
-        Aca ira el Parking - Design
-    </div>
-</section>
-
+    <section th:fragment="parking">
+        <div class="mx-3 my-4 grid grid-cols-1 gap-y-6 items-center justify-center">
+            <div class="bg-zinc-800 p-6 rounded-lg h-auto m-auto">
+                <div class="items-center justify-center hidden sm:flex">
+                    <!-- Imagen de Película Seleccionada -->
+                    <img th:src="@{images/movies/pelicula-1.png}" alt="Película Seleccionada">
+                </div>
+                <div class="flex items-center justify-center space-x-3 mb-4">
+                    <h1 class="text-3xl">El Padrino</h1>
+                    <i class="fa-solid fa-repeat p-2 bg-secondaryColor text-white rounded-full hover:bg-primaryColor hover:text-black"></i>
+                </div>
+                <div class="space-y-1">
+                    <div class="space-x-2 flex items-center">
+                        <i class="fa-regular fa-calendar-check text-xl"></i>
+                        <span class="text-normal">Miercoles, 26 de Noviembre, 2024</span>
+                    </div>
+                    <div class="space-x-2 flex items-center">
+                        <i class="fa-regular fa-clock text-xl"></i>
+                        <span class="text-normal">6:30pm</span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <!-- Pantalla AutoCine -->
+                <div class="flex justify-center items-center">
+                    <div class="h-8 w-full bg-zinc-300 flex items-center justify-center shadow-lg shadow-white drop-shadow-2xl text-zinc-700"> Pantalla </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </html>
