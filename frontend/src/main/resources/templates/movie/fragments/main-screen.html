@@ -1,32 +1,18 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="es">
-    <section th:fragment="main-screen" class="relative w-full bg-black mt-24">
-        <div class="relative flex flex-row items-center justify-between">
-            <div class="w-1/2">
-                <div class="w-[250px] h-[350px] overflow-hidden rounded-lg">
-                    <img th:src="@{/images/movies/main-screen.png}" 
-                         alt="The Godfather" 
-                         class="w-full h-full object-cover">
-                </div>
-            </div>
-
-            <div class="w-1/2 flex flex-col items-start justify-center text-left space-y-4 p-8">
-                <h1 class="text-4xl font-bold text-white">The Godfather</h1>
-                <p class="text-lg text-gray-300">
-                    Una obra maestra del cine que narra la historia de la familia Corleone y su ascenso en el mundo del crimen organizado en Nueva York.
-                </p>
-                <div class="flex space-x-4">
-                    <button class="px-6 py-3 bg-cyan-400 text-white rounded hover:bg-cyan-500">
-                        Ver descripción
-                    </button>
-                    <button class="px-6 py-3 border border-cyan-400 text-white rounded hover:bg-cyan-400">
-                        Adquirir entrada
-                    </button>
-                </div>
-            </div>
+<section th:fragment="main-screen" class="main-screen">
+    <div class="left-side">
+        <img th:src="@{/images/movies/main-screen.png}" alt="The Godfather">
+    </div>
+    <div class="right-side">
+        <h1>The Godfather</h1>
+        <p>Una obra maestra del cine que narra la historia de la familia Corleone y su ascenso en el mundo del crimen organizado en Nueva York.</p>
+        <div class="buttons">
+            <!-- Botón Ver descripción -->
+            <button class="bg-black">Ver descripción</button>
+            <!-- Botón Adquirir entrada -->
+            <button class="bg-cyan">Adquirir entrada</button>
         </div>
-    </section>
-</html>
+    </div>
+</section>
 
 
 

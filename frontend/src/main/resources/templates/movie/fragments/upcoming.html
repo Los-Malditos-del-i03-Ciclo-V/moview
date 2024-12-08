@@ -1,24 +1,20 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="es">
-  <section th:fragment="upcoming" class="py-8 bg-gray-900 text-white">
-    <h3 class="text-2xl font-bold mb-4 text-center">PROXIMAMENTE</h3>
-    <div class="flex space-x-2 animate-loop-scroll">
-      <!-- Cada tarjeta con el efecto hover -->
-      <div class="bg-gray-800 rounded-lg shadow-md w-[200px] overflow-hidden transform transition-all hover:scale-110 hover:border-4 hover:border-white hover:ring-2 hover:ring-white">
-        <img th:src="@{/images/movies/pelicula1-PR.jpg}" class="w-full h-auto rounded-lg">
+<section th:fragment="upcoming" class="popular-section">
+  <h3 class="section-title">PROXIMAMENTE</h3>
+  <div class="carousel">
+      <div class="movie-card">
+        <a href=""><img th:src="@{/images/movies/pelicula1-PR.jpg}" alt="Película 1"></a>
       </div>
-      <div class="bg-gray-800 rounded-lg shadow-md w-[200px] overflow-hidden transform transition-all hover:scale-110 hover:border-4 hover:border-white hover:ring-2 hover:ring-white">
-        <img th:src="@{/images/movies/pelicula2-PR.png}" class="w-full h-auto rounded-lg">
+      <div class="movie-card">
+        <a href=""><img th:src="@{/images/movies/pelicula2-PR.png}" alt="Película 2"></a>
       </div>
-      <div class="bg-gray-800 rounded-lg shadow-md w-[200px] overflow-hidden transform transition-all hover:scale-110 hover:border-4 hover:border-white hover:ring-2 hover:ring-white">
-        <img th:src="@{/images/movies/pelicula3-PR.jpg}" class="w-full h-auto rounded-lg">
+      <div class="movie-card">
+          <a href=""></a><img th:src="@{/images/movies/pelicula3-PR.jpg}" alt="Película 3"></a>
       </div>
-      <div class="bg-gray-800 rounded-lg shadow-md w-[200px] overflow-hidden transform transition-all hover:scale-110 hover:border-4 hover:border-white hover:ring-2 hover:ring-white">
-        <img th:src="@{/images/movies/pelicula4-PR.jpg}" class="w-full h-auto rounded-lg">
+      <div class="movie-card">
+        <a href=""><img th:src="@{/images/movies/pelicula4-PR.jpg}" alt="Película 4"></a>
       </div>
-      <div class="bg-gray-800 rounded-lg shadow-md w-[200px] overflow-hidden transform transition-all hover:scale-110 hover:border-4 hover:border-white hover:ring-2 hover:ring-white">
-        <img th:src="@{/images/movies/pelicula5-PR.jpg}" class="w-full h-auto rounded-lg">
+      <div class="movie-card">
+        <a href=""><img th:src="@{/images/movies/pelicula5-PR.jpg}" alt="Película 5"></a>
       </div>
-    </div>
-  </section>
-</html>
+  </div>
+</section>
