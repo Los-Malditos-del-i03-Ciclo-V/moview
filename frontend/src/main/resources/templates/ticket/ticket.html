@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
 <th:block th:replace="~{fragments/head :: head}"></th:block>
-<body class="bg-black text-white">
+<body class="bg-black text-white flex flex-col m-0 h-lvh">
 
      <!-- HEADER SECTION -->
      <header th:replace="~{fragments/header-user :: header-user}"></header>
-
 
      <!-- STEPS TO BUY MOVIEW -->
      <section th:replace="~{fragments/steps-buy :: steps-buy}"></section>
@@ -14,6 +13,6 @@
      <section th:replace="~{ticket/fragments/parking :: parking}"></section>
 
      <!-- Footer -->
-     <!-- <footer th:replace="~{fragments/footer :: footer}"></footer> -->
+     <footer th:replace="~{fragments/footer :: footer}"></footer>
 </body>
 </html>
