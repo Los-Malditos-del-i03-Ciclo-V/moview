@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Moview Checkout</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<th:block th:replace="~{fragments/head :: head}"></th:block>
+<script src="https://cdn.tailwindcss.com"></script>
 
 <body class="bg-black text-white font-sans">
-
+<header th:replace="~{fragments/header :: header}"></header>
+<br><br>
 <div class="flex justify-center items-center my-6 space-x-4">
   <!-- Paso 1 -->
   <div class="flex items-center">
@@ -176,6 +172,8 @@
     <button class="w-full py-2 mt-4 bg-cyan-300 text-black font-bold rounded">Make payment</button>
   </div>
 </div>
+<br><br>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
 </body>
 </html>
 
