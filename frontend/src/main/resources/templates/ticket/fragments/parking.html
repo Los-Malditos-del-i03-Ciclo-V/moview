@@ -2,13 +2,13 @@
 <html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
 
     <section th:fragment="parking">
-        <div class="mx-3 my-4 grid grid-cols-1 gap-y-6 items-center justify-center">
-            <div class="bg-zinc-800 p-6 rounded-lg h-auto m-auto">
+        <div class="mx-3 my-4 grid grid-cols-1 gap-y-4 items-center justify-center">
+            <div class="bg-zinc-800 px-6 py-2 rounded-lg h-auto m-auto">
                 <div class="items-center justify-center hidden sm:flex">
                     <!-- Imagen de Película Seleccionada -->
                     <img th:src="@{images/movies/pelicula-1.png}" alt="Película Seleccionada">
                 </div>
-                <div class="flex items-center justify-center space-x-3 mb-4">
+                <div class="flex items-center justify-center space-x-3 mb-2">
                     <h1 class="text-3xl">El Padrino</h1>
                     <i class="fa-solid fa-repeat p-2 bg-secondaryColor text-white rounded-full hover:bg-primaryColor hover:text-black"></i>
                 </div>
@@ -26,7 +26,50 @@
             <div>
                 <!-- Pantalla AutoCine -->
                 <div class="flex justify-center items-center">
-                    <div class="h-8 w-full bg-zinc-300 flex items-center justify-center shadow-lg shadow-white drop-shadow-2xl text-zinc-700"> Pantalla </div>
+                    <div class="h-8 w-full bg-zinc-100 flex items-center justify-center shadow-lg shadow-white drop-shadow-2xl text-zinc-700"> Pantalla </div>
+                </div>
+                <!-- Parking Carros -->
+                <div class="py-5 mx-1">
+                    <!-- Fila A -->
+                    <div class="grid grid-cols-10 justify-items-center items-center border-t-2 py-4">                        
+                        <span class="text-sm text-gray-300">A</span>
+                        <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl"></i></a><span>1</span></div>
+                        <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl"></i></a><span>2</span></div>
+                        <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl text-red-500"></i></a><span>3</span></div>
+                        <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl text-red-500"></i></a><span>4</span></div>
+                        <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl text-red-500"></i></a><span>5</span></div>
+                        <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl text-red-500"></i></a><span>6</span></div>
+                        <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl text-red-500"></i></a><span>7</span></div>
+                        <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl"></i></a><span>8</span></div>
+                        <span class="text-sm text-gray-300">A</span>                        
+                    </div>
+                    <!-- Fila B -->
+                    <div class="grid grid-cols-10 justify-items-center items-center border-t-2 py-4">                                                
+                        <span class="text-sm text-gray-300">B</span>
+                        <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl"></i></a><span>1</span></div>
+                        <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl"></i></a><span>2</span></div>
+                        <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl text-red-500"></i></a><span>3</span></div>
+                        <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl text-red-500"></i></a><span>4</span></div>
+                        <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl text-red-500"></i></a><span>5</span></div>
+                        <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl text-primaryColor"></i></a><span>6</span></div>
+                        <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl"></i></a><span>7</span></div>
+                        <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl"></i></a><span>8</span></div>
+                        <span class="text-sm text-gray-300">B</span>                   
+                    </div>
+                    <!-- Fila C -->
+                    <div class="grid grid-cols-10 justify-items-center items-center py-4">                                                
+                        <span class="text-sm text-gray-300">C</span>
+                        <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl"></i></a><span>1</span></div>
+                        <!-- Prueba Space Carro invisible para ingreso de vehículo - Design -->
+                        <div class="flex flex-col items-center justify-cente bg-transparent text-transparent"></div>
+                        <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl text-red-500"></i></a><span>3</span></div>
+                        <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl text-red-500"></i></a><span>4</span></div>
+                        <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl text-red-500"></i></a><span>5</span></div>
+                        <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl text-primaryColor"></i></a><span>6</span></div>
+                        <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl"></i></a><span>7</span></div>
+                        <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl"></i></a><span>8</span></div>
+                        <span class="text-sm text-gray-300">C</span>                   
+                    </div>
                 </div>
             </div>
         </div>
