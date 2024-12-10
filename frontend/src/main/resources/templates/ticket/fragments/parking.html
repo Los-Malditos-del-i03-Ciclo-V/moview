@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+
+    <section th:fragment="parking">
+        <div class="mx-3 my-4 grid grid-cols-1 md:grid-cols-3 gap-y-4 items-center justify-center min-[1400px]:mx-40 min-[1600px]:mx-64">
+            <div class="bg-zinc-800 px-6 py-2 rounded-lg h-full m-auto md:h-auto min-[1400px]:h-full min-[1400px]:space-y-4">
+                <div class="items-center justify-center hidden sm:flex">
+                    <!-- Imagen de Película Seleccionada -->
+                    <img th:src="@{images/movies/pelicula-1.png}" class="lg:h-full lg:w-full" alt="Película Seleccionada">
+                </div>
+                <div class="flex items-center justify-center space-x-3 mb-2">
+                    <h1 class="text-3xl">El Padrino</h1>
+                    <i class="fa-solid fa-repeat p-2 bg-secondaryColor text-white rounded-full hover:bg-primaryColor hover:text-black"></i>
+                </div>
+                <div class="space-y-1">
+                    <div class="space-x-2 flex items-center">
+                        <i class="fa-regular fa-calendar-check text-xl"></i>
+                        <span class="text-normal">Miercoles, 26 de Noviembre, 2024</span>
+                    </div>
+                    <div class="space-x-2 flex items-center">
+                        <i class="fa-regular fa-clock text-xl"></i>
+                        <span class="text-normal">6:30pm</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-span-2">
+                <!-- Pantalla AutoCine -->
+                <div class="flex justify-center items-center">
+                    <div class="h-4 w-full bg-zinc-100 flex items-center justify-center shadow-lg shadow-white drop-shadow-2xl text-zinc-700"> Pantalla </div>
+                </div>
+                <!-- Parking Carros -->
+                <div class="py-5 mx-1">
+                    <!-- Fila A -->
+                    <div class="flex justify-center items-center space-x-6 lg:space-x-14 xl:space-x-16">                        
+                        <span class="text-sm text-gray-300">A</span>
+                        <div class="flex justify-center items-center space-x-3 border-t-2 py-2 lg:space-x-10">
+                            <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150"></i></a><span class="text-gray-400">1</span></div>
+                            <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150"></i></a><span class="text-gray-400">2</span></div>
+                            <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150 text-red-500"></i></a><span class="text-gray-400">3</span></div>
+                            <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150 text-red-500"></i></a><span class="text-gray-400">4</span></div>
+                            <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150 text-red-500"></i></a><span class="text-gray-400">5</span></div>
+                            <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150 text-red-500"></i></a><span class="text-gray-400">6</span></div>
+                            <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150 text-red-500"></i></a><span class="text-gray-400">7</span></div>
+                            <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150"></i></a><span class="text-gray-400">8</span></div>
+                        </div>                        
+                        <span class="text-sm text-gray-300">A</span>
+                    </div>
+                    <!-- Fila B -->
+                    <div class="flex justify-center items-center space-x-6 lg:space-x-14 xl:space-x-16">                        
+                        <span class="text-sm text-gray-300">B</span>
+                        <div class="flex justify-center items-center space-x-3 border-t-2 py-2 lg:space-x-10">
+                            <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150"></i></a><span class="text-gray-400">1</span></div>
+                            <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150 text-red-500"></i></a><span class="text-gray-400">2</span></div>
+                            <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150 text-red-500"></i></a><span class="text-gray-400">3</span></div>
+                            <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150 text-red-500"></i></a><span class="text-gray-400">4</span></div>
+                            <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150 text-red-500"></i></a><span class="text-gray-400">5</span></div>
+                            <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150 text-primaryColor"></i></a><span class="text-gray-400">6</span></div>
+                            <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150"></i></a><span class="text-gray-400">7</span></div>
+                            <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150"></i></a><span class="text-gray-400">8</span></div>
+                        </div>                        
+                        <span class="text-sm text-gray-300">B</span>
+                    </div>
+                    <!-- Fila C -->
+                    <div class="flex justify-center items-center space-x-6 lg:space-x-14 xl:space-x-16">                        
+                        <span class="text-sm text-gray-300">C</span>
+                        <div class="flex justify-center items-center space-x-4 lg:space-x-[52px]">
+                            <div class="flex items-center justify-center space-x-3 border-t-2 py-2 lg:space-x-10">
+                                <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150"></i></a><spa class="text-gray-400">1</span></div>
+                                <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150 text-red-500"></i></a><span class="text-gray-400">2</span></div>
+                            </div>
+                            <!-- Flecha señalizacion ingreso auto -->
+                            <i class="fa-solid fa-arrow-up text-gray-400"></i>
+                            <div class="flex items-center justify-center space-x-3 border-t-2 py-2 lg:space-x-10">
+                                <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl text-red-500 hover:text-zinc-400 duration-150"></i></a><span class="text-gray-400">3</span></div>
+                                <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl text-red-500 hover:text-zinc-400 duration-150"></i></a><span class="text-gray-400">4</span></div>
+                                <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl text-red-500 hover:text-zinc-400 duration-150"></i></a><span class="text-gray-400">5</span></div>
+                            </div>
+                            <!-- Flecha señalizacion ingreso auto -->
+                            <i class="fa-solid fa-arrow-up text-gray-400"></i>
+                            <div class="flex items-center justify-center border-t-2 py-2 lg:space-x-10">
+                                <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl text-red-500 hover:text-zinc-400 duration-150"></i></a><span class="text-gray-400">6</span></div>
+                            </div>
+                        </div>                        
+                        <span class="text-sm text-gray-300">C</span>
+                    </div>
+                    <!-- Fila D -->
+                    <div class="flex justify-center items-center space-x-6 lg:space-x-14 xl:space-x-16">                        
+                        <span class="text-sm text-gray-300">D</span>
+                        <div class="flex justify-center items-center space-x-4 lg:space-x-[52px]">
+                            <div class="flex items-center justify-center space-x-3 border-t-2 py-2 lg:space-x-10">
+                                <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150"></i></a><spa class="text-gray-400">1</span></div>
+                                <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150"></i></a><span class="text-gray-400">2</span></div>
+                            </div>
+                            <!-- Flecha señalizacion ingreso auto -->
+                            <i class="fa-solid fa-arrow-up text-gray-400"></i>
+                            <div class="flex items-center justify-center space-x-3 border-t-2 py-2 lg:space-x-10">
+                                <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150 text-red-500"></i></a><span class="text-gray-400">3</span></div>
+                                <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150"></i></a><span class="text-gray-400">4</span></div>
+                                <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150 text-red-500"></i></a><span class="text-gray-400">5</span></div>
+                            </div>
+                            <!-- Flecha señalizacion ingreso auto -->
+                            <i class="fa-solid fa-arrow-up text-gray-400"></i>
+                            <div class="flex items-center justify-center border-t-2 py-2 lg:space-x-10">
+                                <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl text-red-500 hover:text-zinc-400 duration-150"></i></a><span class="text-gray-400">6</span></div>
+                            </div>
+                        </div>                        
+                        <span class="text-sm text-gray-300">D</span>
+                    </div>
+                     <!-- Fila E -->
+                     <div class="flex justify-center items-center space-x-6 lg:space-x-14 xl:space-x-16">                        
+                        <span class="text-sm text-gray-300">E</span>
+                        <div class="flex justify-center items-center space-x-4 lg:space-x-[52px] border-b-2">
+                            <div class="flex items-center justify-center space-x-3 border-t-2 py-2 lg:space-x-10">
+                                <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150 text-red-500"></i></a><spa class="text-gray-400">1</span></div>
+                                <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150"></i></a><span class="text-gray-400">2</span></div>
+                            </div>
+                            <!-- Flecha señalizacion ingreso auto -->
+                            <i class="fa-solid fa-arrow-up text-gray-400"></i>
+                            <div class="flex items-center justify-center space-x-3 border-t-2 py-2 lg:space-x-10">
+                                <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150 text-red-500"></i></a><span class="text-gray-400">3</span></div>
+                                <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150"></i></a><span class="text-gray-400">4</span></div>
+                                <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150"></i></a><span class="text-gray-400">5</span></div>
+                            </div>
+                            <!-- Flecha señalizacion ingreso auto -->
+                            <i class="fa-solid fa-arrow-up text-gray-400"></i>
+                            <div class="flex items-center justify-center border-t-2 py-2 lg:space-x-10">
+                                <div class="flex flex-col items-center justify-center"><a href="#"><i class="fa-solid fa-car-rear text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:text-zinc-400 duration-150"></i></a><span class="text-gray-400">6</span></div>
+                            </div>
+                        </div>                        
+                        <span class="text-sm text-gray-300">E</span>
+                    </div>
+                    <!-- Seleccion de espacio -->
+                    <div class="flex flex-col items-center justify-center py-2 space-y-6 lg:space-x-14 xl:space-x-16">
+                        <div class="flex items-centem justify-center space-x-6">
+                            <div class="flex flex-col items-center justify-center">
+                                <i class="fa-solid fa-car-rear text-lg lg:text-3xl"></i>
+                                <span class="text-sm">Disponible</span>
+                            </div>
+                            <div class="flex flex-col items-center justify-center">
+                                <i class="fa-solid fa-car-rear text-lg text-red-500 lg:text-3xl"></i>
+                                <span class="text-sm text-red-500">Ocupado</span>
+                            </div>
+                            <div class="flex flex-col items-center justify-center">
+                                <i class="fa-solid fa-car-rear text-lg text-primaryColor lg:text-3xl"></i>
+                                <span class="text-sm text-primaryColor">Seleccionado</span>
+                            </div>
+                        </div>
+                        <div class="space-x-6 flex justify-center items-center">
+                            <span class="text-sm lg:text-xl">Espacio seleccionado:</span>
+                            <span class="text-sm lg:text-xl text-primaryColor">(B6)</span>
+                            <a href="#" class="text-sm lg:text-lg px-2 lg:px-4 py-1 bg-primaryColor text-black font-semibold rounded-md hover:bg-primaryHoverColor">Continuar</a>
+                        </div>            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</html>
