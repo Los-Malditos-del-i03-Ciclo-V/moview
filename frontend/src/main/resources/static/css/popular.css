@@ -1,0 +1,57 @@
+/* Estilo general para la sección */
+.popular-section {
+    background-color: #1a1a1a;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.section-title {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Carrusel */
+.movie-card img {
+    width: 100%; /* El ancho ocupará todo el contenedor */
+    height: auto; /* Mantiene la proporción de las imágenes */
+    display: block; /* Evita espacios blancos inesperados */
+}
+.movie-card {
+    width: 600px; /* Mantén el ancho fijo de la imagen */
+    height: 275px; /* Mantén la altura fija de la imagen */
+    flex-shrink: 0; /* Evita que el tamaño cambie en el carrusel */
+    overflow: hidden; /* Oculta cualquier desbordamiento */
+    margin-right: 20px; /* Espaciado opcional entre imágenes */
+}
+.carousel {
+    display: flex;
+    gap: 0; /* Sin espacio adicional entre tarjetas (ajústalo si lo necesitas) */
+    overflow: hidden; /* Oculta imágenes fuera del contenedor principal */
+    width: 100%; /* Ajusta el carrusel al contenedor padre */
+    position: relative;
+}
+
+
+.carousel div {
+    flex-shrink: 0; /* Evita que las tarjetas cambien de tamaño */
+}
+
+
+/* Efectos hover */
+.movie-card:hover {
+    transform: scale(1.1);
+    border: 2px solid white;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Animación del carrusel */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
