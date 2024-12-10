@@ -1,7 +1,6 @@
 package pe.edu.certus.api.utils.costants;
 
 public class UserTemplateRoutes {
-
     public static final String HOME_PAGE = "/home/home";
     public static final String LOGIN_PAGE = "/auth/login";
     public static final String REGISTER_PAGE = "/auth/register";
