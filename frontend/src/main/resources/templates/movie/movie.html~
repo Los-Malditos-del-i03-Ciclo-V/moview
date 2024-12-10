@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<th:block th:replace="~{fragments/head :: head}"></th:block>
+<body class="bg-black">
+<!-- HEADER SECTION -->
+<header th:replace="~{fragments/header :: header}"></header>
+
+<!-- LIST-MOVIES SECTION -->
+<section th:replace="~{movie/fragments/main-screen :: main-screen}"></section>
+
+<!-- POPULAR -->
+<section th:replace="~{movie/fragments/popular :: popular}"></section>
+
+<!--RELEASES -->
+<section th:replace="~{movie/fragments/releases :: releases}"></section>
+
+<!--UPCOMING -->
+<section th:replace="~{movie/fragments/upcoming :: upcoming}"></section>
+
+<!-- FOOTER -->
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+
+<!-- DIRECTORIO JS -->
+<script th:src="@{/js/popular.js}"></script>
+<script th:src="@{/js/app.js}"></script>
+<script th:src="@{/index.js}"></script>
+</body>
+</html>
+
+
+<!--<div>
+    <h1>Movies List</h1>
+    <hr>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Director</th>
+            <th>Synopsis</th>
+            <th>Image</th>
+            <th>Duration</th>
+            <th>Description</th>
+            <th>Clasification</th>
+            <th>Language</th>
+            <th>Category</th>
+            <th>Format</th>
+        </tr>
+        </thead>
+
+        <tbody class="table-group-divider">
+        <tr class="table table-striped" th:each="movie : ${moviesList}">
+            <td th:text="${movie.id}"></td>
+            <td th:text="${movie.title}"></td>
+            <td th:text="${movie.director}"></td>
+            <td th:text="${movie.synopsis}"></td>
+            <td th:text="${movie.image}"></td>
+            <td th:text="${movie.duration}"></td>
+            <td th:text="${movie.description}"></td>
+            <td th:text="${movie.clasification}"></td>
+            <td th:text="${movie.language}"></td>
+            <td th:text="${movie.category}"></td>
+            <td th:text="${movie.format}"></td>
+        </tr>
+        </tbody>
+
+    </table>
+    <a href="movie.html">Movie register</a>
+    </div> -->
+
+
+</body>
+</html>

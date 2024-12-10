@@ -1,0 +1,48 @@
+# Application Configuration
+spring.application.name=moview
+spring.profiles.active=dev
+
+# Server Configuration (HTTP)
+server.port=1234
+
+# MVC Configuration
+spring.mvc.view.suffix=.html
+
+# Server Configuration (Servlet)
+server.servlet.context-path=/moview
+
+# Thymeleaf Configuration
+spring.thymeleaf.prefix=classpath:templates/
+spring.thymeleaf.enabled=true
+spring.thymeleaf.cache=false
+spring.main.banner-mode=console
+
+# Logging Configuration
+#logging.level.root=INFO
+#logging.file.path=logs
+#logging.file.name=application.log
+#logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+#logging.pattern.file=%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+#logging.level.org.hibernate.SQL=DEBUG
+#logging.level.org.springframework=DEBUG
+#logging.level.org.springframework.web=DEBUG
+#logging.level.org.springframework.orm.jpa=DEBUG
+#logging.level.org.hibernate.type.descriptor.sql=TRACE
+
+# Database Configuration (MySQL)
+spring.jpa.database=MYSQL
+spring.datasource.platform=mysql
+spring.datasource.url=jdbc:mysql://localhost:3306/moview?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8
+spring.datasource.username=root
+spring.datasource.password=Pierorg7227
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# JPA Configuration
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=create-drop
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+spring.jpa.properties.hibernate.format_sql=true
+
+# Script Configuration for Database Initialization
+spring.sql.init.mode=never
+spring.jpa.defer-datasource-initialization=true

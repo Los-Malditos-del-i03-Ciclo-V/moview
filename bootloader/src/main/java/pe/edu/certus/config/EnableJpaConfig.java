@@ -4,6 +4,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
-@EnableJpaRepositories(basePackages = {"pe.edu.certus.persistence"})
+@EnableJpaRepositories(basePackages = {"pe.edu.certus.repository"})
 public class EnableJpaConfig {
 }

@@ -1,0 +1,27 @@
+# Gateway Configuration para Spring Cloud ps
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: movie-service
+          uri: lb://movie-service
+          predicates:
+            - Path=/api/movies/**
+
+        # Comentado para implementar otro servicio a futuro
+        # - id: otro-servicio
+        #   uri: lb://otro-servicio
+        #   predicates:
+        #     - Path=/api/otro/**
+
+# Server Configuration que nos servirá para el puerto
+server:
+  port: 8090
+
+# Eureka Configuration que ayuda a encontrar los microservicios :'v
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true

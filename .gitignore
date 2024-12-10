@@ -36,3 +36,4 @@ build/
 
 ### Node ###
 node_modules/
+/.metadata/
