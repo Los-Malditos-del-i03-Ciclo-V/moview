@@ -37,3 +37,4 @@ build/
 ### Node ###
 node_modules/
 /.metadata/
+config-repo

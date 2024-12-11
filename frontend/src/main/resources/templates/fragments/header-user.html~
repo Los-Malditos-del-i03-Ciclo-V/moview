@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header th:fragment="header-user" class="bg-black py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo y botón de retroceso -->
+                <div class="flex items-center space-x-4">
+                    <a th:href="@{/home}" class="flex items-center">
+                        <img th:src="@{/images/company/logo_moview.svg}" class="h-12 w-12" alt="Moview Logo">
+                        <span class="text-[#5CE1E6] text-2xl font-bold ml-2">MOVIEW</span>
+                    </a>
+                    <button onclick="history.back()" class="text-white hover:text-[#5CE1E6] transition-colors">
+                        <i class="fas fa-arrow-left mr-2"></i>Back
+                    </button>
+                </div>
+
+                <!-- Selector de película -->
+                <div class="flex-1 max-w-md mx-8">
+                    <div class="relative">
+                        <input type="text" 
+                               placeholder="Select your movie" 
+                               class="w-full bg-black border border-[#5CE1E6] rounded-full px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-[#5CE1E6]">
+                    </div>
+                </div>
+
+                <!-- Botón de salida y perfil -->
+                <div class="flex items-center space-x-4">
+                    <button class="text-white hover:text-[#5CE1E6] transition-colors">
+                        <i class="fas fa-bell"></i>
+                    </button>
+                    <a th:href="@{/logout}" class="text-white hover:text-[#5CE1E6] transition-colors">
+                        <i class="fas fa-times mr-2"></i>Exit
+                    </a>
+                    <div class="relative">
+                        <button class="w-12 h-12 rounded-full overflow-hidden border-2 border-[#5CE1E6]">
+                            <img th:src="@{/images/profile/default-profile.jpg}" 
+                                 alt="Profile" 
+                                 class="w-full h-full object-cover">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</body>
+</html>

@@ -1,84 +1,179 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moview - Órdenes</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="/">Moview</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/movies.html">Películas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/snacks.html">Snacks</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/tickets.html">Tickets</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/orders.html">Órdenes</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<th:block th:replace="~{fragments/head :: head}"></th:block>
+<script src="https://cdn.tailwindcss.com"></script>
 
-    <div class="container mt-4">
-        <h1>Mis Órdenes</h1>
-        <div class="row">
-            <div class="col-12">
-                <div id="orderList" class="list-group">
-                    <!-- Las órdenes se cargarán dinámicamente aquí -->
+<body class="bg-black text-white font-sans">
+<header th:replace="~{fragments/header :: header}"></header>
+<br><br>
+<div class="flex justify-center items-center my-6 space-x-4">
+    <!-- Paso 1 -->
+    <div class="flex items-center">
+        <div class="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+            </svg>
+        </div>
+        <span class="text-sm mt-2 ml-2">Movie</span>
+    </div>
+
+    <!-- linea -->
+    <div class="w-16 h-1 bg-white"></div>
+
+    <!-- Paso 2 -->
+    <div class="flex items-center">
+        <div class="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+            </svg>
+        </div>
+        <span class="text-sm mt-2 ml-2">Ticket</span>
+    </div>
+
+    <!-- linea -->
+    <div class="w-16 h-1 bg-white"></div>
+
+    <!-- Paso 3 -->
+    <div class="flex items-center">
+        <div class="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+            </svg>
+        </div>
+        <span class="text-sm mt-2 ml-2">Snack</span>
+    </div>
+
+    <!-- linea -->
+    <div class="w-16 h-1 bg-white"></div>
+
+    <!-- Paso 4 -->
+    <div class="flex items-center">
+        <div class="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+            </svg>
+        </div>
+        <span class="text-sm mt-2 ml-2">Payment</span>
+    </div>
+</div>
+
+<div class="flex justify-center items-start space-x-8 px-8">
+    <!-- Forma de Pago -->
+    <div class="min-h-screen flex items-center justify-center bg-black">
+        <div class="w-full max-w-lg bg-white p-8 shadow-md rounded-lg">
+            <!-- Encabezado con ícono y texto -->
+            <div class="flex items-center mb-6">
+                <!-- Ícono -->
+                <div class="w-6 h-6 text-cyan-300 mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 12V6a2 2 0 00-2-2H6a2 2 0 00-2 2v6m16 0h-6m6 0a2 2 0 002-2V6a2 2 0 00-2-2m-6 0V6M6 12h16M6 12a2 2 0 01-2-2m0 6h16m-16 0v6m16-6v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6" />
+                    </svg>
+                </div>
+                <!-- Título -->
+                <h2 class="text-xl font-medium text-black">Add new card</h2>
+            </div>
+
+            <!-- Información del pago -->
+            <div class="mb-4">
+                <label for="name" class="block text-gray-600 mb-2">Nombre del titular</label>
+                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-cyan-300" placeholder="Ingresa tu nombre completo">
+            </div>
+
+            <!-- Tipo de documento y número -->
+            <div class="mb-4 flex space-x-4">
+                <div class="w-1/2">
+                    <label for="documentType" class="block text-gray-600 mb-2">Tipo de documento</label>
+                    <select id="documentType" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-cyan-300">
+                        <option value="dni">DNI</option>
+                        <option value="carnet">Carnet de Extranjería</option>
+                        <option value="pasaporte">Pasaporte</option>
+                        <option value="ruc">RUC</option>
+                    </select>
+                </div>
+
+                <div class="w-1/2">
+                    <label for="documentNumber" class="block text-gray-600 mb-2">Número de documento</label>
+                    <input type="text" id="documentNumber" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-cyan-300" placeholder="12345678">
                 </div>
             </div>
+
+            <!-- Número de tarjeta -->
+            <div class="mb-4">
+                <label for="card" class="block text-gray-600 mb-2">Número de tarjeta</label>
+                <input type="text" id="card" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-cyan-300" placeholder="1234 5678 9012 3456">
+                <!-- Iconos de tarjetas -->
+                <div class="flex space-x-2 mt-2">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" class="h-6">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/MasterCard_Logo.svg" alt="Mastercard" class="h-6">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/American_Express_logo_%282018%29.svg" alt="American Express" class="h-6">
+                </div>
+            </div>
+
+            <div class="flex space-x-4 mb-4">
+                <div class="w-1/2">
+                    <label for="expiry" class="block text-gray-600 mb-2">Fecha de expiración</label>
+                    <input type="text" id="expiry" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-cyan-300" placeholder="MM/AA">
+                </div>
+                <div class="w-1/2">
+                    <label for="cvc" class="block text-gray-600 mb-2">CVC</label>
+                    <input type="text" id="cvc" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-cyan-300" placeholder="123">
+                </div>
+            </div>
+
+            <!-- Información adicional -->
+            <div class="mb-6">
+                <label for="email" class="block text-gray-600 mb-2">Correo electrónico</label>
+                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-cyan-300" placeholder="Ingresa tu correo">
+            </div>
+
+            <!-- Botón de pago -->
+            <button onclick="confirmPayment()" class="w-full bg-cyan-300 text-black py-3 rounded-lg font-bold hover:bg-cyan-400 transition duration-300">
+                Realizar Pago
+            </button>
+
+            <!-- Footer -->
+            <p class="text-center text-gray-400 text-sm mt-6">
+                Pago 100% seguro y protegido
+            </p>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', loadOrders);
 
-        async function loadOrders() {
-            try {
-                const response = await fetch('http://localhost:8080/api/orders');
-                const orders = await response.json();
-                const orderList = document.getElementById('orderList');
-                
-                orders.forEach(order => {
-                    const orderDate = new Date(order.orderDate).toLocaleDateString();
-                    const orderItem = `
-                        <div class="list-group-item">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">Orden #${order.id}</h5>
-                                <small>Fecha: ${orderDate}</small>
-                            </div>
-                            <p class="mb-1">
-                                Estado: ${order.status}<br>
-                                Total: $${order.total}
-                            </p>
-                            <small>
-                                Película: ${order.movieId}<br>
-                                Ticket: ${order.ticketId}<br>
-                                ${order.snackId ? `Snack: ${order.snackId}` : 'Sin snacks'}
-                            </small>
-                        </div>
-                    `;
-                    orderList.innerHTML += orderItem;
-                });
-            } catch (error) {
-                console.error('Error loading orders:', error);
-            }
-        }
-    </script>
+    <!-- Orden -->
+    <div class="bg-white text-black p-6 rounded-lg w-1/3 shadow-lg">
+        <h2 class="text-lg font-bold mb-4">Order Details</h2>
+        <div class="space-y-4">
+            <div class="flex justify-between">
+                <span>Crunchies Bundle</span>
+                <span>$15.00</span>
+            </div>
+            <div class="flex justify-between">
+                <span>Juice</span>
+                <span>$5.00</span>
+            </div>
+            <div class="flex justify-between">
+                <span>Cookie</span>
+                <span>$3.00</span>
+            </div>
+            <div class="flex justify-between">
+                <span>Candies</span>
+                <span>$2.00</span>
+            </div>
+            <hr class="my-4 border-gray-300">
+            <div class="flex justify-between font-bold">
+                <span>Total</span>
+                <span>$25.00</span>
+            </div>
+        </div>
+        <button class="w-full py-2 mt-4 bg-cyan-300 text-black font-bold rounded">Make payment</button>
+    </div>
+</div>
+<br><br>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
 </body>
 </html>
+

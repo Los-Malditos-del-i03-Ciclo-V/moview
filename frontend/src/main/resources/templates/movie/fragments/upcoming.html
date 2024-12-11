@@ -1,20 +1,49 @@
-<section th:fragment="upcoming" class="popular-section">
-  <h3 class="section-title">PROXIMAMENTE</h3>
-  <div class="carousel">
-      <div class="movie-card">
-        <a href=""><img th:src="@{/images/movies/pelicula1-PR.jpg}" alt="Película 1"></a>
+<section th:fragment="upcoming" class="upcoming-section bg-gray-900 py-12">
+  <div class="container mx-auto px-4">
+    <h3 class="text-3xl font-bold text-white text-center mb-8">PRÓXIMAMENTE</h3>
+    
+    <div class="upcoming-slider overflow-x-auto whitespace-nowrap scroll-smooth">
+      <div class="inline-flex space-x-6">
+        <div th:each="movie : ${upcomingMovies}" 
+             class="upcoming-card inline-block w-64 bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl relative group">
+          <div class="relative overflow-hidden">
+            <img th:src="${movie.posterUrl}" th:alt="${movie.title}" 
+                 class="w-full h-[400px] object-cover filter grayscale transition-all duration-300 group-hover:grayscale-0 group-hover:scale-110">
+            
+            <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-70 transition-opacity duration-300 flex items-center justify-center">
+              <div class="text-center">
+                <p class="text-white text-xl font-semibold mb-4">Próximamente</p>
+                <a th:href="@{/movies-descriptions/{movieId}(movieId=${movie.id})}" 
+                   class="notify-button bg-white text-black px-6 py-3 rounded-full font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-blue-500 hover:text-white">
+                  Notificarme
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="p-4">
+            <h4 th:text="${movie.title}" class="text-white font-bold text-xl mb-2 truncate"></h4>
+            <div class="flex justify-between items-center">
+              <span th:text="${movie.genre}" class="text-gray-400 text-sm"></span>
+              <span th:text="${movie.releaseDate}" 
+                    class="text-yellow-500 font-bold"></span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="movie-card">
-        <a href=""><img th:src="@{/images/movies/pelicula2-PR.png}" alt="Película 2"></a>
-      </div>
-      <div class="movie-card">
-          <a href=""></a><img th:src="@{/images/movies/pelicula3-PR.jpg}" alt="Película 3"></a>
-      </div>
-      <div class="movie-card">
-        <a href=""><img th:src="@{/images/movies/pelicula4-PR.jpg}" alt="Película 4"></a>
-      </div>
-      <div class="movie-card">
-        <a href=""><img th:src="@{/images/movies/pelicula5-PR.jpg}" alt="Película 5"></a>
-      </div>
+    </div>
   </div>
 </section>
+
+<style>
+  .upcoming-slider::-webkit-scrollbar {
+    display: none;
+  }
+  .upcoming-card .notify-button {
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+  }
+  .upcoming-card:hover .notify-button {
+    transform: translateY(0);
+  }
+</style>

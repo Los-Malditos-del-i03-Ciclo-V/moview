@@ -1,10 +1,707 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 <th:block th:replace="~{fragments/head :: head}"></th:block>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+    .especial {
+        color: #69C4CB;
+    }
 
-<body>
+    .boton {
+        border: 1px solid #69C4CB;
+        border-radius: 2px;
+    }
+
+    .text-custom-color {
+        color: #69C4CB;
+    }
+</style>
+<body class="bg-black text-white">
 <!-- HEADER SECTION -->
-    <header th:replace="~{fragments/header :: header}"></header>
+<header th:replace="~{fragments/header :: header}"></header>
 
+<div class="max-w-6xl mx-auto mt-10">
+    <!-- Status de compra -->
+    <section th:replace="~{fragments/steps-buy :: steps-buy}"></section>
+
+    <div class="max-w-6xl mx-auto mt-10 grid grid-cols-3 gap-4">
+
+        <!-- Resumen de Compra -->
+        <div class="col-span-1 bg-white bg-opacity-5 p-4 rounded-lg shadow-lg">
+            <h2 class="text-lg font-bold especial mb-4">Resumen de Compra</h2>
+            <div class="summary flex flex-col space-y-4">
+                <!-- contenido de compra -->
+            </div>
+            <hr class="border-gray-500">
+            <div class="total flex justify-between font-bold mt-4">
+                <span>Total:</span>
+                <span id="total-price">$0.00</span>
+            </div>
+            <button class="mt-4 bg-teal-500 text-white w-full py-2 rounded">Confirmar Compra</button>
+        </div>
+
+
+        <!-- Tabs y Contenido -->
+        <div class="col-span-2">
+
+            <!-- Tabs -->
+            <ul id="tabs" class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400" role="tablist">
+                <li class="me-2">
+                    <button data-tab-target="combos" class="inline-block p-4 rounded-t-lg" aria-selected="true">
+                        COMBOS
+                    </button>
+                </li>
+                <li class="me-2">
+                    <button data-tab-target="popcorn" class="inline-block p-4 rounded-t-lg hover:text-gray-600">
+                        POP-CORN
+                    </button>
+                </li>
+                <li class="me-2">
+                    <button data-tab-target="drinks" class="inline-block p-4 rounded-t-lg hover:text-gray-600  ">
+                        DRINKS
+                    </button>
+                </li>
+                <li class="me-2">
+                    <button data-tab-target="complementos" class="inline-block p-4 rounded-t-lg hover:text-gray-600">
+                        COMPLEMENTOS
+                    </button>
+                </li>
+            </ul>
+
+
+            <!-- Tab Content -->
+            <div id="tab-content" class="mt-4">
+                <!-- Combos Tab -->
+                <div data-tab="combos" class="tab-panel block">
+                    <div class="grid grid-cols-2 gap-4">
+                        <!-- COMBO 1 -->
+                        <div class="card flex bg-white bg-opacity-5 border border-white rounded-lg shadow-lg p-2 h-34 overflow-hidden"
+                             data-id="1"
+                             data-name="Combo 1"
+                             data-price="49.90">
+                            <div class="flex-shrink-0 flex items-center justify-center ml-4">
+                                <img th:src="@{/images/confiteria/combo1.png}" alt="" class="w-32 h-32">
+                            </div>
+                            <div class="ml-6 flex flex-col justify-between h-full">
+                                <div class="flex flex-col justify-center">
+                                    <div class="flex items-baseline justify-between">
+                                        <h3 class="text-sm font-bold especial">COMBO 1</h3>
+                                        <h3 class="text-sm font-bold especial">$49.90</h3>
+                                    </div>
+                                    <ul class="mt-1 ml-2 list-disc text-white text-xs">
+                                        <li class="mb-1">1 Cancha Salada Grande</li>
+                                        <li class="mb-1">2 Bebidas Grandes</li>
+                                        <li class="mb-1">Hot Dog Jumbo</li>
+                                    </ul>
+                                </div>
+                                <hr class="mt-2 bg-gray-200 w-50">
+                                <div class="flex items-center justify-between mt-1">
+                                    <button class="decrease text-white rounded-lg w-8 h-8 flex items-center justify-center boton">-</button>
+                                    <span class="counter text-lg especial">0</span>
+                                    <button class="increase text-white rounded-lg w-8 h-8 flex items-center justify-center boton">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- COMBO 2 -->
+                        <div class="flex bg-white bg-opacity-5 border border-white rounded-lg shadow-lg p-2 h-34 overflow-hidden">
+                            <div class="flex-shrink-0 flex items-center justify-center ml-4">
+                                <img th:src="@{/images/confiteria/combo2.png}" alt="" class="w-32 h-32">
+                            </div>
+                            <div class="ml-6 flex flex-col justify-between h-full">
+                                <div class="flex flex-col justify-center">
+                                    <div class="flex items-baseline justify-between">
+                                        <h3 class="text-sm font-bold especial">COMBO 2</h3>
+                                        <h3 class="text-sm font-bold especial">$49.90</h3>
+                                    </div>
+                                    <ul class="mt-1 ml-2 list-disc text-white text-xs">
+                                        <li class="mb-1">1 Cancha Dulce Grande</li>
+                                        <li class="mb-1">1 Bebida Grande</li>
+                                        <li class="mb-1">Nachos</li>
+                                    </ul>
+                                </div>
+                                <hr class="mt-2 bg-gray-200 w-50">
+                                <div class="flex items-center justify-between mt-1">
+                                    <button onclick="decreaseCount('counter-2')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">-</button>
+                                    <span id="counter-2" class="text-lg especial">0</span>
+                                    <button onclick="increaseCount('counter-2')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- COMBO 3 -->
+                        <div class="flex bg-white bg-opacity-5 border border-white rounded-lg shadow-lg p-2 h-34 overflow-hidden">
+                            <div class="flex-shrink-0 flex items-center justify-center ml-4">
+                                <img th:src="@{/images/confiteria/combo3.png}" alt="" class="w-32 h-32">
+                            </div>
+                            <div class="ml-6 flex flex-col justify-between h-full">
+                                <div class="flex flex-col justify-center">
+                                    <div class="flex items-baseline justify-between">
+                                        <h3 class="text-sm font-bold especial">COMBO 3</h3>
+                                        <h3 class="text-sm font-bold especial">$37.90</h3>
+                                    </div>
+                                    <ul class="mt-1 ml-2 list-disc text-white text-xs">
+                                        <li class="mb-1">1 Cancha Salada Mediana</li>
+                                        <li class="mb-1">1 Bebida Grande</li>
+                                        <li class="mb-1">Hot Dog Jumbo</li>
+                                    </ul>
+                                </div>
+                                <hr class="mt-2 bg-gray-200 w-50">
+                                <div class="flex items-center justify-between mt-1">
+                                    <button onclick="decreaseCount('counter-3')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">-</button>
+                                    <span id="counter-3" class="text-lg especial">0</span>
+                                    <button onclick="increaseCount('counter-3')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- COMBO 4 -->
+                        <div class="flex bg-white bg-opacity-5 border border-white rounded-lg shadow-lg p-2 h-34 overflow-hidden">
+                            <div class="flex-shrink-0 flex items-center justify-center ml-4">
+                                <img th:src="@{/images/confiteria/combo4.png}" alt="" class="w-32 h-32">
+                            </div>
+                            <div class="ml-6 flex flex-col justify-between h-full">
+                                <div class="flex flex-col justify-center">
+                                    <div class="flex items-baseline justify-between">
+                                        <h3 class="text-sm font-bold especial">COMBO 4</h3>
+                                        <h3 class="text-sm font-bold especial">$39.90</h3>
+                                    </div>
+                                    <ul class="mt-1 ml-2 list-disc text-white text-xs">
+                                        <li class="mb-1">1 Cancha Dulce Mediana</li>
+                                        <li class="mb-1">1 Bebida Grande</li>
+                                        <li class="mb-1">Nachos</li>
+                                    </ul>
+                                </div>
+                                <hr class="mt-2 bg-gray-200 w-50">
+                                <div class="flex items-center justify-between mt-1">
+                                    <button onclick="decreaseCount('counter-4')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">-</button>
+                                    <span id="counter-4" class="text-lg especial">0</span>
+                                    <button onclick="increaseCount('counter-4')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- COMBO 5 -->
+                        <div class="flex bg-white bg-opacity-5 border border-white rounded-lg shadow-lg p-2 h-34 overflow-hidden">
+                            <div class="flex-shrink-0 flex items-center justify-center ml-4">
+                                <img th:src="@{/images/confiteria/combo5.png}" alt="" class="w-32 h-32">
+                            </div>
+                            <div class="ml-6 flex flex-col justify-between h-full">
+                                <div class="flex flex-col justify-center">
+                                    <div class="flex items-baseline justify-between">
+                                        <h3 class="text-sm font-bold especial">COMBO 5</h3>
+                                        <h3 class="text-sm font-bold especial">$24.90</h3>
+                                    </div>
+                                    <ul class="mt-1 ml-2 list-disc text-white text-xs">
+                                        <li class="mb-1">1 Cancha Salada Mediana</li>
+                                        <li class="mb-1">1 Bebida Mediana</li>
+                                    </ul>
+                                </div>
+                                <hr class="mt-2 bg-gray-200 w-50">
+                                <div class="flex items-center justify-between mt-1">
+                                    <button onclick="decreaseCount('counter-5')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">-</button>
+                                    <span id="counter-5" class="text-lg especial">0</span>
+                                    <button onclick="increaseCount('counter-5')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- COMBO 6 -->
+                        <div class="flex bg-white bg-opacity-5 border border-white rounded-lg shadow-lg p-2 h-34 overflow-hidden">
+                            <div class="flex-shrink-0 flex items-center justify-center ml-4">
+                                <img th:src="@{/images/confiteria/combo6.png}" alt="" class="w-32 h-32">
+                            </div>
+                            <div class="ml-6 flex flex-col justify-between h-full">
+                                <div class="flex flex-col justify-center">
+                                    <div class="flex items-baseline justify-between">
+                                        <h3 class="text-sm font-bold especial">COMBO 6</h3>
+                                        <h3 class="text-sm font-bold especial">$24.90</h3>
+                                    </div>
+                                    <ul class="mt-1 ml-2 list-disc text-white text-xs">
+                                        <li class="mb-1">1 Cancha Dulce Mediana</li>
+                                        <li class="mb-1">1 Bebida Mediana</li>
+                                    </ul>
+                                </div>
+                                <hr class="mt-2 bg-gray-200 w-50">
+                                <div class="flex items-center justify-between mt-1">
+                                    <button onclick="decreaseCount('counter-6')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">-</button>
+                                    <span id="counter-6" class="text-lg especial">0</span>
+                                    <button onclick="increaseCount('counter-6')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- popcorn Tab -->
+                <div data-tab="popcorn" class="tab-panel hidden">
+                    <div class="grid grid-cols-2 gap-4">
+                        <!-- POPCORN 1 -->
+                        <div class="flex bg-white bg-opacity-5 border border-white rounded-lg shadow-lg p-2 h-34 overflow-hidden">
+                            <div class="flex-shrink-0 flex items-center justify-center ml-4">
+                                <img th:src="@{/images/confiteria/popcorn.png}" alt="" class="w-32 h-32">
+                            </div>
+                            <div class="ml-6 flex flex-col justify-between h-full">
+                                <div class="flex flex-col justify-center">
+                                    <div class="flex items-baseline justify-between">
+                                        <h3 class="text-sm font-bold especial">POPCORN 1</h3>
+                                        <h3 class="text-sm font-bold especial">$15.90</h3>
+                                    </div>
+                                    <ul class="mt-4 ml-2 list-disc text-white text-xs">
+                                        <li class="mb-1">1 Cancha Salada Grande</li>
+                                    </ul>
+                                </div>
+                                <hr class="mt-2 bg-gray-200 w-50">
+                                <div class="flex items-center justify-between mt-1">
+                                    <button onclick="decreaseCount('counter-7')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">-</button>
+                                    <span id="counter-7" class="text-lg especial">0</span>
+                                    <button onclick="increaseCount('counter-7')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- POPCORN 2 -->
+                        <div class="flex bg-white bg-opacity-5 border border-white rounded-lg shadow-lg p-2 h-34 overflow-hidden">
+                            <div class="flex-shrink-0 flex items-center justify-center ml-4">
+                                <img th:src="@{/images/confiteria/popcorn.png}" alt="" class="w-32 h-32">
+                            </div>
+                            <div class="ml-6 flex flex-col justify-between h-full">
+                                <div class="flex flex-col justify-center">
+                                    <div class="flex items-baseline justify-between">
+                                        <h3 class="text-sm font-bold especial">POPCORN 2</h3>
+                                        <h3 class="text-sm font-bold especial">$10.90</h3>
+                                    </div>
+                                    <ul class="mt-4 ml-2 list-disc text-white text-xs">
+                                        <li class="mb-1">1 Cancha Salada Mediana</li>
+                                    </ul>
+                                </div>
+                                <hr class="mt-2 bg-gray-200 w-50">
+                                <div class="flex items-center justify-between mt-1">
+                                    <button onclick="decreaseCount('counter-8')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">-</button>
+                                    <span id="counter-8" class="text-lg especial">0</span>
+                                    <button onclick="increaseCount('counter-8')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- POPCORN 3 -->
+                        <div class="flex bg-white bg-opacity-5 border border-white rounded-lg shadow-lg p-2 h-34 overflow-hidden">
+                            <div class="flex-shrink-0 flex items-center justify-center ml-4">
+                                <img th:src="@{/images/confiteria/popcorn.png}" alt="" class="w-32 h-32">
+                            </div>
+                            <div class="ml-6 flex flex-col justify-between h-full">
+                                <div class="flex flex-col justify-center">
+                                    <div class="flex items-baseline justify-between">
+                                        <h3 class="text-sm font-bold especial">POPCORN 3</h3>
+                                        <h3 class="text-sm font-bold especial">$18.90</h3>
+                                    </div>
+                                    <ul class="mt-4 ml-2 list-disc text-white text-xs">
+                                        <li class="mb-1">1 Cancha Dulce Grande</li>
+                                    </ul>
+                                </div>
+                                <hr class="mt-2 bg-gray-200 w-50">
+                                <div class="flex items-center justify-between mt-1">
+                                    <button onclick="decreaseCount('counter-9')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">-</button>
+                                    <span id="counter-9" class="text-lg especial">0</span>
+                                    <button onclick="increaseCount('counter-9')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- POPCORN 4 -->
+                        <div class="flex bg-white bg-opacity-5 border border-white rounded-lg shadow-lg p-2 h-34 overflow-hidden">
+                            <div class="flex-shrink-0 flex items-center justify-center ml-4">
+                                <img th:src="@{/images/confiteria/popcorn.png}" alt="" class="w-32 h-32">
+                            </div>
+                            <div class="ml-6 flex flex-col justify-between h-full">
+                                <div class="flex flex-col justify-center">
+                                    <div class="flex items-baseline justify-between">
+                                        <h3 class="text-sm font-bold especial">POPCORN 4</h3>
+                                        <h3 class="text-sm font-bold especial">$13.90</h3>
+                                    </div>
+                                    <ul class="mt-1 ml-2 list-disc text-white text-xs">
+                                        <li class="mb-1">1 Cancha Dulce Mediana</li>
+                                    </ul>
+                                </div>
+                                <hr class="mt-2 bg-gray-200 w-50">
+                                <div class="flex items-center justify-between mt-1">
+                                    <button onclick="decreaseCount('counter-10')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">-</button>
+                                    <span id="counter-10" class="text-lg especial">0</span>
+                                    <button onclick="increaseCount('counter-10')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- POPCORN 5 -->
+                        <div class="flex bg-white bg-opacity-5 border border-white rounded-lg shadow-lg p-2 h-34 overflow-hidden">
+                            <div class="flex-shrink-0 flex items-center justify-center ml-4">
+                                <img th:src="@{/images/confiteria/popcorn.png}" alt="" class="w-32 h-32">
+                            </div>
+                            <div class="ml-6 flex flex-col justify-between h-full">
+                                <div class="flex flex-col justify-center">
+                                    <div class="flex items-baseline justify-between">
+                                        <h3 class="text-sm font-bold especial">POPCORN 5</h3>
+                                        <h3 class="text-sm font-bold especial">$20.90</h3>
+                                    </div>
+                                    <ul class="mt-4 ml-2 list-disc text-white text-xs">
+                                        <li class="mb-1">1 Cancha Especial Grande</li>
+                                    </ul>
+                                </div>
+                                <hr class="mt-2 bg-gray-200 w-50">
+                                <div class="flex items-center justify-between mt-1">
+                                    <button onclick="decreaseCount('counter-11')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">-</button>
+                                    <span id="counter-11" class="text-lg especial">0</span>
+                                    <button onclick="increaseCount('counter-11')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- POPCORN 6 -->
+                        <div class="flex bg-white bg-opacity-5 border border-white rounded-lg shadow-lg p-2 h-34 overflow-hidden">
+                            <div class="flex-shrink-0 flex items-center justify-center ml-4">
+                                <img th:src="@{/images/confiteria/popcorn.png}" alt="" class="w-32 h-32">
+                            </div>
+                            <div class="ml-6 flex flex-col justify-between h-full">
+                                <div class="flex flex-col justify-center">
+                                    <div class="flex items-baseline justify-between">
+                                        <h3 class="text-sm font-bold especial">POPCORN 6</h3>
+                                        <h3 class="text-sm font-bold especial">$18.90</h3>
+                                    </div>
+                                    <ul class="mt-4 ml-2 list-disc text-white text-xs">
+                                        <li class="mb-1">1 Cancha Especial Mediana</li>
+                                    </ul>
+                                </div>
+                                <hr class="mt-2 bg-gray-200 w-50">
+                                <div class="flex items-center justify-between mt-1">
+                                    <button onclick="decreaseCount('counter-12')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">-</button>
+                                    <span id="counter-12" class="text-lg especial">0</span>
+                                    <button onclick="increaseCount('counter-12')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Drinks Tab -->
+                <div data-tab="drinks" class="tab-panel hidden">
+                    <div class="grid grid-cols-2 gap-4">
+                        <!-- DRINK 1 -->
+                        <div class="flex bg-white bg-opacity-5 border border-white rounded-lg shadow-lg p-2 h-34 overflow-hidden">
+                            <div class="flex-shrink-0 flex items-center justify-center ml-4">
+                                <img th:src="@{/images/confiteria/drink.png}" alt="" class="w-32 h-32">
+                            </div>
+                            <div class="ml-6 flex flex-col justify-between h-full">
+                                <div class="flex flex-col justify-center">
+                                    <div class="flex items-baseline justify-between">
+                                        <h3 class="text-sm font-bold especial">DRINK 1</h3>
+                                        <h3 class="text-sm font-bold especial">$12.90</h3>
+                                    </div>
+                                    <ul class="mt-4 ml-2 list-disc text-white text-xs">
+                                        <li class="mb-1">1 Bebida Grande a elección</li>
+                                    </ul>
+                                </div>
+                                <hr class="mt-2 bg-gray-200 w-50">
+                                <div class="flex items-center justify-between mt-1">
+                                    <button onclick="decreaseCount('counter-13')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">-</button>
+                                    <span id="counter-13" class="text-lg especial">0</span>
+                                    <button onclick="increaseCount('counter-13')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DRINK 2 -->
+                        <div class="flex bg-white bg-opacity-5 border border-white rounded-lg shadow-lg p-2 h-34 overflow-hidden">
+                            <div class="flex-shrink-0 flex items-center justify-center ml-4">
+                                <img th:src="@{/images/confiteria/drink.png}" alt="" class="w-32 h-32">
+                            </div>
+                            <div class="ml-6 flex flex-col justify-between h-full">
+                                <div class="flex flex-col justify-center">
+                                    <div class="flex items-baseline justify-between">
+                                        <h3 class="text-sm font-bold especial">DRINK 2</h3>
+                                        <h3 class="text-sm font-bold especial">$10.90</h3>
+                                    </div>
+                                    <ul class="mt-4 ml-2 list-disc text-white text-xs">
+                                        <li class="mb-1">1 Bebida Mediana a elección</li>
+                                    </ul>
+                                </div>
+                                <hr class="mt-2 bg-gray-200 w-50">
+                                <div class="flex items-center justify-between mt-1">
+                                    <button onclick="decreaseCount('counter-14')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">-</button>
+                                    <span id="counter-14" class="text-lg especial">0</span>
+                                    <button onclick="increaseCount('counter-14')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DRINK 3 -->
+                        <div class="flex bg-white bg-opacity-5 border border-white rounded-lg shadow-lg p-2 h-34 overflow-hidden">
+                            <div class="flex-shrink-0 flex items-center justify-center ml-4">
+                                <img th:src="@{/images/confiteria/sanluis.png}" alt="" class="w-32 h-32">
+                            </div>
+                            <div class="ml-6 flex flex-col justify-between h-full">
+                                <div class="flex flex-col justify-center">
+                                    <div class="flex items-baseline justify-between">
+                                        <h3 class="text-sm font-bold especial">DRINK 3</h3>
+                                        <h3 class="text-sm font-bold especial">$5.90</h3>
+                                    </div>
+                                    <ul class="mt-4 ml-2 list-disc text-white text-xs">
+                                        <li class="mb-1">1 Agua San Luis con Gas</li>
+                                    </ul>
+                                </div>
+                                <hr class="mt-2 bg-gray-200 w-50">
+                                <div class="flex items-center justify-between mt-1">
+                                    <button onclick="decreaseCount('counter-15')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">-</button>
+                                    <span id="counter-15" class="text-lg especial">0</span>
+                                    <button onclick="increaseCount('counter-15')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DRINK 4 -->
+                        <div class="flex bg-white bg-opacity-5 border border-white rounded-lg shadow-lg p-2 h-34 overflow-hidden">
+                            <div class="flex-shrink-0 flex items-center justify-center ml-4">
+                                <img th:src="@{/images/confiteria/sanluis.png}" alt="" class="w-32 h-32">
+                            </div>
+                            <div class="ml-6 flex flex-col justify-between h-full">
+                                <div class="flex flex-col justify-center">
+                                    <div class="flex items-baseline justify-between">
+                                        <h3 class="text-sm font-bold especial">DRINK 4</h3>
+                                        <h3 class="text-sm font-bold especial">$5.90</h3>
+                                    </div>
+                                    <ul class="mt-4 ml-2 list-disc text-white text-xs">
+                                        <li class="mb-1">1 Agua San Luis sin Gas</li>
+                                    </ul>
+                                </div>
+                                <hr class="mt-2 bg-gray-200 w-50">
+                                <div class="flex items-center justify-between mt-1">
+                                    <button onclick="decreaseCount('counter-16')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">-</button>
+                                    <span id="counter-16" class="text-lg especial">0</span>
+                                    <button onclick="increaseCount('counter-16')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- DRINK 5 -->
+                        <div class="flex bg-white bg-opacity-5 border border-white rounded-lg shadow-lg p-2 h-34 overflow-hidden">
+                            <div class="flex-shrink-0 flex items-center justify-center ml-4">
+                                <img th:src="@{/images/confiteria/drink.png}" alt="" class="w-32 h-32">
+                            </div>
+                            <div class="ml-6 flex flex-col justify-between h-full">
+                                <div class="flex flex-col justify-center">
+                                    <div class="flex items-baseline justify-between">
+                                        <h3 class="text-sm font-bold especial">DRINK 5</h3>
+                                        <h3 class="text-sm font-bold especial">$12.90</h3>
+                                    </div>
+                                    <ul class="mt-4 ml-2 list-disc text-white text-xs">
+                                        <li class="mb-1">1 Té Helado o
+                                        <li class="mb-1">Limonada Natural Mediana</li>
+                                    </ul>
+                                </div>
+                                <hr class="mt-2 bg-gray-200 w-50">
+                                <div class="flex items-center justify-between mt-1">
+                                    <button onclick="decreaseCount('counter-17')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">-</button>
+                                    <span id="counter-17" class="text-lg especial">0</span>
+                                    <button onclick="increaseCount('counter-17')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DRINK 6 -->
+                        <div class="flex bg-white bg-opacity-5 border border-white rounded-lg shadow-lg p-2 h-34 overflow-hidden">
+                            <div class="flex-shrink-0 flex items-center justify-center ml-4">
+                                <img th:src="@{/images/confiteria/drink.png}" alt="" class="w-32 h-32">
+                            </div>
+                            <div class="ml-6 flex flex-col justify-between h-full">
+                                <div class="flex flex-col justify-center">
+                                    <div class="flex items-baseline justify-between">
+                                        <h3 class="text-sm font-bold especial">DRINK 6</h3>
+                                        <h3 class="text-sm font-bold especial">$9.90</h3>
+                                    </div>
+                                    <ul class="mt-4 ml-2 list-disc text-white text-xs">
+                                        <li class="mb-1">1 Té Helado o
+                                        <li class="mb-1">Limonada Natural Mediana</li>
+                                    </ul>
+                                </div>
+                                <hr class="mt-2 bg-gray-200 w-50">
+                                <div class="flex items-center justify-between mt-1">
+                                    <button onclick="decreaseCount('counter-18')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">-</button>
+                                    <span id="counter-18" class="text-lg especial">0</span>
+                                    <button onclick="increaseCount('counter-18')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- COMPLEMENTOS Tab -->
+                <div data-tab="complementos" class="tab-panel hidden">
+                    <div class="grid grid-cols-2 gap-4">
+                        <!-- COMPLEMENTO 1 -->
+                        <div class="flex bg-white bg-opacity-5 border border-white rounded-lg shadow-lg p-2 h-34 overflow-hidden">
+                            <div class="flex-shrink-0 flex items-center justify-center ml-4">
+                                <img th:src="@{/images/confiteria/nachos.png}" alt="" class="w-32 h-32">
+                            </div>
+                            <div class="ml-6 flex flex-col justify-between h-full">
+                                <div class="flex flex-col justify-center">
+                                    <div class="flex items-baseline justify-between">
+                                        <h3 class="text-sm font-bold especial">EXTRA 1</h3>
+                                        <h3 class="text-sm font-bold especial">$10.90</h3>
+                                    </div>
+                                    <ul class="mt-4 ml-2 list-disc text-white text-xs">
+                                        <li class="mb-1">1 Nachos más queso</li>
+                                    </ul>
+                                </div>
+                                <hr class="mt-2 bg-gray-200 w-50">
+                                <div class="flex items-center justify-between mt-1">
+                                    <button onclick="decreaseCount('counter-19')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">-</button>
+                                    <span id="counter-19" class="text-lg especial">0</span>
+                                    <button onclick="increaseCount('counter-19')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- COMPLEMENTO 2 -->
+                        <div class="flex bg-white bg-opacity-5 border border-white rounded-lg shadow-lg p-2 h-34 overflow-hidden">
+                            <div class="flex-shrink-0 flex items-center justify-center ml-4">
+                                <img th:src="@{/images/confiteria/hotdog.png}" alt="" class="w-32 h-32">
+                            </div>
+                            <div class="ml-6 flex flex-col justify-between h-full">
+                                <div class="flex flex-col justify-center">
+                                    <div class="flex items-baseline justify-between">
+                                        <h3 class="text-sm font-bold especial">EXTRA 2</h3>
+                                        <h3 class="text-sm font-bold especial">$10.90</h3>
+                                    </div>
+                                    <ul class="mt-4 ml-2 list-disc text-white text-xs">
+                                        <li class="mb-1">1 Hot Dog Jumbo</li>
+                                    </ul>
+                                </div>
+                                <hr class="mt-2 bg-gray-200 w-50">
+                                <div class="flex items-center justify-between mt-1">
+                                    <button onclick="decreaseCount('counter-20')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">-</button>
+                                    <span id="counter-20" class="text-lg especial">0</span>
+                                    <button onclick="increaseCount('counter-20')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- COMPLEMENTO 3 -->
+                        <div class="flex bg-white bg-opacity-5 border border-white rounded-lg shadow-lg p-2 h-34 overflow-hidden">
+                            <div class="flex-shrink-0 flex items-center justify-center ml-4">
+                                <img th:src="@{/images/confiteria/papas.png}" alt="" class="w-32 h-32">
+                            </div>
+                            <div class="ml-6 flex flex-col justify-between h-full">
+                                <div class="flex flex-col justify-center">
+                                    <div class="flex items-baseline justify-between">
+                                        <h3 class="text-sm font-bold especial">EXTRA 3</h3>
+                                        <h3 class="text-sm font-bold especial">$7.90</h3>
+                                    </div>
+                                    <ul class="mt-4 ml-2 list-disc text-white text-xs">
+                                        <li class="mb-1">1 Papas Fritas Grande</li>
+                                    </ul>
+                                </div>
+                                <hr class="mt-2 bg-gray-200 w-50">
+                                <div class="flex items-center justify-between mt-1">
+                                    <button onclick="decreaseCount('counter-21')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">-</button>
+                                    <span id="counter-21" class="text-lg especial">0</span>
+                                    <button onclick="increaseCount('counter-21')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- COMPLEMENTO 4 -->
+                        <div class="flex bg-white bg-opacity-5 border border-white rounded-lg shadow-lg p-2 h-34 overflow-hidden">
+                            <div class="flex-shrink-0 flex items-center justify-center ml-4">
+                                <img th:src="@{/images/confiteria/papas.png}" alt="" class="w-32 h-32">
+                            </div>
+                            <div class="ml-6 flex flex-col justify-between h-full">
+                                <div class="flex flex-col justify-center">
+                                    <div class="flex items-baseline justify-between">
+                                        <h3 class="text-sm font-bold especial">EXTRA 4</h3>
+                                        <h3 class="text-sm font-bold especial">$5.90</h3>
+                                    </div>
+                                    <ul class="mt-4 ml-2 list-disc text-white text-xs">
+                                        <li class="mb-1">1 Papas Fritas Mediana</li>
+                                    </ul>
+                                </div>
+                                <hr class="mt-2 bg-gray-200 w-50">
+                                <div class="flex items-center justify-between mt-1">
+                                    <button onclick="decreaseCount('counter-22')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">-</button>
+                                    <span id="counter-22" class="text-lg especial">0</span>
+                                    <button onclick="increaseCount('counter-22')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- COMPLEMENTO 5 -->
+                        <div class="flex bg-white bg-opacity-5 border border-white rounded-lg shadow-lg p-2 h-34 overflow-hidden">
+                            <div class="flex-shrink-0 flex items-center justify-center ml-4">
+                                <img th:src="@{/images/confiteria/mm.png}" alt="" class="w-32 h-32">
+                            </div>
+                            <div class="ml-6 flex flex-col justify-between h-full">
+                                <div class="flex flex-col justify-center">
+                                    <div class="flex items-baseline justify-between">
+                                        <h3 class="text-sm font-bold especial">EXTRA 5</h3>
+                                        <h3 class="text-sm font-bold especial">$8.90</h3>
+                                    </div>
+                                    <ul class="mt-4 ml-2 list-disc text-white text-xs">
+                                        <li class="mb-1">1  M&M  surtido  45g</li>
+                                    </ul>
+                                </div>
+                                <hr class="mt-2 bg-gray-200 w-50">
+                                <div class="flex items-center justify-between mt-1">
+                                    <button onclick="decreaseCount('counter-23')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">-</button>
+                                    <span id="counter-23" class="text-lg especial">0</span>
+                                    <button onclick="increaseCount('counter-23')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DRINK 6 -->
+                        <div class="flex bg-white bg-opacity-5 border border-white rounded-lg shadow-lg p-2 h-34 overflow-hidden">
+                            <div class="flex-shrink-0 flex items-center justify-center ml-4">
+                                <img src="./img/drink.png" alt="" class="w-32 h-32">
+                            </div>
+                            <div class="ml-6 flex flex-col justify-between h-full">
+                                <div class="flex flex-col justify-center">
+                                    <div class="flex items-baseline justify-between">
+                                        <h3 class="text-sm font-bold especial">EXTRA 6</h3>
+                                        <h3 class="text-sm font-bold especial">$9.90</h3>
+                                    </div>
+                                    <ul class="mt-4 ml-2 list-disc text-white text-xs">
+                                        <li class="mb-1">1 Té Helado o
+                                        <li class="mb-1">Limonada Natural Mediana</li>
+                                    </ul>
+                                </div>
+                                <hr class="mt-2 bg-gray-200 w-50">
+                                <div class="flex items-center justify-between mt-1">
+                                    <button onclick="decreaseCount('counter-24')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">-</button>
+                                    <span id="counter-24" class="text-lg especial">0</span>
+                                    <button onclick="increaseCount('counter-24')" class="text-white rounded-lg w-8 h-8 flex items-center justify-center boton">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center mt-10">
+                <button class="bg-teal-500 text-black py-2 px-4 rounded">Continuar la Compra</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+<script th:src="@{/snacks.js}"></script>
+<script th:src="@{/counter.js}"></script>
 </body>
 </html>

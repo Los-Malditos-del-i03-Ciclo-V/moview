@@ -36,7 +36,7 @@
             <!-- Grouped Projections -->
             <div th:each="entry : ${groupedProjections}" class="mb-8">
                 <!-- Time Header -->
-                <h3 class="text-xl font-semibold mb-4 text-[#5CE1E6]"
+                <h3 class="text-xl font-semibold mb-4 text-primaryColor"
                     th:text="${#temporals.format(entry.key, 'HH:mm')} + ' hrs'">
                 </h3>
 
@@ -51,7 +51,7 @@
                         <span class="text-base"
                               th:text="${#temporals.format(projection.projectionDate, 'd MMMM')}">
                         </span>
-                        <span class="text-sm text-[#5CE1E6]"
+                        <span class="text-sm text-primaryColor"
                               th:text="${#temporals.format(projection.projectionTime, 'HH:mm')} + ' hrs'">
                         </span>
                     </div>
